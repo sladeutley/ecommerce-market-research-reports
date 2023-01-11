@@ -19,7 +19,7 @@ sanity help - to explore the CLI manual
 
 7) create our first schema, the product schema. I believe this the object for the data we will be storing in sanity.io and will allow us to be able to change data within sanity
 8) create the rest of your schemas (did this in last commit)
-9) create schema.js file (still in schemas folder) that links us up to our sanity desk (npm run dev while cd'd in sanity folder in terminal). COULDN'T get it working though, seems like everything is linked to index.js, so formatted it to work in index.js instead of schema.js. I think it works but may have messed up - look into if this is currently how you structure this. So not sure if schema.js does anything
+9) create schema.js file (still in schemas folder) that links us up to our sanity desk (npm run dev while cd'd in sanity folder in terminal). COULDN'T get it working though, seems like everything is linked to index.js, so formatted it to work in index.js instead of schema.js. I think it works but may have messed up - look into if this is currently how you structure this. So not sure if schema.js does anything -> **NOTE - it looks like all you have to do if want to make edits to sanity desk is update the schema file of the desired thing you wanna update (e.g. add discount property or whatever to product.js in schema folder). Then you just stop server when cd'd in sanity folder and run npm run dev again. Not sure if this works exactly like this when already deployed though. Might have to undeploy or just push changes to github.
 
 
 What Files We'll Need for Sanity
@@ -29,4 +29,4 @@ What Files We'll Need for Sanity
 
 
 Sanity.io Notes
-(to be filled out later)
+- to make changes to a schema(aka an object in sanity studio) -> it looks like all you have to do if want to make edits to sanity desk is update the schema file of the desired thing you wanna update (e.g. add discount property or whatever to product.js in schema folder). Then you just stop server when cd'd in sanity folder and run npm run dev again. Not sure if this works exactly like this when already deployed though. Might have to undeploy or just push changes to github.

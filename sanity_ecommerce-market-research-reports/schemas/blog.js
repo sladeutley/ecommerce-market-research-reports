@@ -18,6 +18,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'author', //the blog's author
+      title: 'Author',
+      type: 'string',
+    },
+    {
       name: 'category', //the blog's category
       title: 'Category',
       type: 'string',
