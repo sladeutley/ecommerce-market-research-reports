@@ -1,6 +1,8 @@
 import React from 'react'
 import Head from 'next/head' //this is same thing as Head in html. In next.js, you just have to import it like this
 
+import styles from '../styles/style'
+
 import Navbar from './Navbar'
 import Footer from './Footer'
 
