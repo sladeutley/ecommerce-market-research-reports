@@ -1,3 +1,4 @@
+//EVENTUALLY YOU COULD PUT THIS INTO SANITY.IO, BUT THAT MIGHT NOT BE NECESSARY
 import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
 
 export const navLinks = [
