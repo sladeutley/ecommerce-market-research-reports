@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { client } from '../lib/client';
 import { Product, FooterBanner, HeroBanner } from '../components';
 
 const Home = () => {
@@ -19,6 +20,17 @@ const Home = () => {
       <FooterBanner />
     </>
   )
+}
+
+export const getServerSideProps = async () => { //getServerSideProps is like in react using useEffect and calling client and fetching the data
+  const query = '*[_type == "product"]'; //we're essentially saying here, lets grab all the products from our sanity dashboard
+  const products = await client.fetch(query);
+  const banneryQuery = '*[_type == "banner"]'; //we're essentially saying here, lets grab all the products from our sanity dashboard
+  const bannerData = await client.fetch(banneryQuery);
+
+  return {
+    prop: { products, bannerData }
+  }
 }
 
 export default Home;
