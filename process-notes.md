@@ -22,6 +22,11 @@ sanity help - to explore the CLI manual
 9) create schema.js file (still in schemas folder) that links us up to our sanity desk (npm run dev while cd'd in sanity folder in terminal). COULDN'T get it working though, seems like everything is linked to index.js, so formatted it to work in index.js instead of schema.js. I think it works but may have messed up - look into if this is currently how you structure this. So not sure if schema.js does anything -> **NOTE - it looks like all you have to do if want to make edits to sanity desk is update the schema file of the desired thing you wanna update (e.g. add discount property or whatever to product.js in schema folder). Then you just stop server when cd'd in sanity folder and run npm run dev again. Not sure if this works exactly like this when already deployed though. Might have to undeploy or just push changes to github.
 10) Now follow git commits instructions
 
+Incorporating Tailwind
+
+1) in terminal, had to type 'npm install -D tailwindcss postcss autoprefixer --legacy-peer-deps'
+2) in terminal, type 'npx tailwindcss init -p'
+
 
 What Files We'll Need for Sanity
 - products (make sure to add category and featured boolean (for featured items) property)
