@@ -31,3 +31,4 @@ What Files We'll Need for Sanity
 
 Sanity.io Notes
 - to make changes to a schema(aka an object in sanity studio) -> it looks like all you have to do if want to make edits to sanity desk is update the schema file of the desired thing you wanna update (e.g. add discount property or whatever to product.js in schema folder). Then you just stop server when cd'd in sanity folder and run npm run dev again. Not sure if this works exactly like this when already deployed though. Might have to undeploy or just push changes to github.
+- I believe the client.js file in the lib folder is what is connecting us to 
