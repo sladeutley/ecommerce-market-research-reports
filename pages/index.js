@@ -16,7 +16,8 @@ const Home = ({ products, bannerData }) => {
         {products?.map((product) => <Product key={product._id} product={product} />)}
       </div>
 
-      <FooterBanner />
+      {/* After FooterBanner done, it might be time to start incorporating 'fully responsive site' - I take that back, haven't done navbar yet or set up Layout - maybe do after 'coded Footer component' commit */}
+      <FooterBanner footerBanner={bannerData && bannerData[0]} />
     </>
   )
 }
