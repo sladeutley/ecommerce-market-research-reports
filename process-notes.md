@@ -18,6 +18,8 @@ sanity manage - to open the project settings in a browser
 sanity help - to explore the CLI manual
 
 7) create our first schema, the product schema. I believe this the object for the data we will be storing in sanity.io and will allow us to be able to change data within sanity
+8) create the rest of your schemas (did this in last commit)
+9) create schema.js file (still in schemas folder) that links us up to our sanity desk (npm run dev while cd'd in sanity folder in terminal). COULDN'T get it working though, seems like everything is linked to index.js, so formatted it to work in index.js instead of schema.js. I think it works but may have messed up - look into if this is currently how you structure this. So not sure if schema.js does anything
 
 
 What Files We'll Need for Sanity
