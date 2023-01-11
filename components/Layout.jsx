@@ -4,7 +4,7 @@ import Head from 'next/head' //this is same thing as Head in html. In next.js, y
 import Navbar from './Navbar'
 import Footer from './Footer'
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Head>
@@ -18,7 +18,8 @@ const Layout = () => {
         <Navbar />
       </header>
       <main className="main-container">
-        EMPTY
+        {/* Below, To make Component from _app.js appear in our app, use thing in react where whatever you pass inside your component, you get access to that through prop called 'children' */}
+        {children}
       </main>
       <footer>
         <Footer />
