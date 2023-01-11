@@ -26,6 +26,7 @@ Incorporating Tailwind
 
 1) in terminal, had to type 'npm install -D tailwindcss postcss autoprefixer --legacy-peer-deps'
 2) in terminal, type 'npx tailwindcss init -p'
+3) Add the code that's in tailwind.config.cjs
 
 
 What Files We'll Need for Sanity
