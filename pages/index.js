@@ -6,8 +6,9 @@ import { Product, FooterBanner, HeroBanner } from '../components';
 const Home = ({ products, bannerData }) => {
   return (
     <>
-      <HeroBanner />
-        {console.log(bannerData)}
+      <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
+      {/* Above was coded after adding banner item to sanity desk  */}
+        {/* {console.log(bannerData)} */}
       <div className="products-heading">
         <h2>Best Selling Products</h2>
         <p>Speakers of many variations</p>
