@@ -17,6 +17,7 @@ sanity docs - to open the documentation in a browser
 sanity manage - to open the project settings in a browser
 sanity help - to explore the CLI manual
 
+7) create our first schema, the product schema. I believe this the object for the data we will be storing in sanity.io and will allow us to be able to change data within sanity
 
 
 What Files We'll Need for Sanity
