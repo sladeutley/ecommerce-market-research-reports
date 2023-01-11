@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <div className="navbar-container">
       <p className="logo">
-        <Link href="/">U&G</Link>
+        <Link href="/">U&G Market Research</Link>
       </p>
 
       <button type="button" className="cart-icon" onClick="">
