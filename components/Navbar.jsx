@@ -54,7 +54,7 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <button type="button" className="cart-icon sm:flex hidden justify-end mb-6" onClick="">
+          <button type="button" className="cart-icon sm:flex hidden justify-end mb-6" onClick={() => setShowCart(true)}>
             <AiOutlineShopping />
             <span className="cart-item-qty">{totalQuantities}</span>
           </button>
@@ -88,13 +88,13 @@ const Navbar = () => {
           <img src={logo} alt="hoobank" className="w-[124px] h-[32px] fill-black sm:hidden flex justify-center items-center" />
           
           {/* <button type="button" className="cart-icon sm:hidden flex justify-end items-center" onClick=""> */}
-          <button type="button" className="cart-icon-mobile sm:hidden flex justify-end items-center" onClick="">
+          <button type="button" className="cart-icon-mobile sm:hidden flex justify-end items-center" onClick={() => setShowCart(true)}>
           {/* Above, made class 'cart-icon-mobile' so it could be a bit bigger. Also, you can change it so it's not transparent looking and its color */}
             <AiOutlineShopping />
             <span className="cart-item-qty">{totalQuantities}</span>
           </button>
 
-          <Cart />
+          {showCart && <Cart />}
         </nav>
 
       </div>
