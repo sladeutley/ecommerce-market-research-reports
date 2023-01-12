@@ -2,29 +2,30 @@ import React from 'react'
 //this page is for when user clicks on product it goes to that product page within new products folder. [slug] is the unique identifier from sanity.io and bc it's in brackets means it's dynamic
 
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai'
-
+//1:38:35
 import { client, urlFor } from '../../lib/client' //to get the image for the specific product of the page we're on, we have to make an API call. **THIS IS WHEN YOU USE getServerSideProps (which I copied and pasted from index.js in pages folder). BUT, this time we're gonna change it to getStaticProps, which is another special next js function (used when data required to render the page is availale at build time head of a user's request AND data comes from a headless CMS (like Sanity.io)). Bc data is already there, we get it instantly when click on page
 import { Product } from '../../components'
 
 const ProductDetails = ({ product, products }) => { //just like getServerSideProps, getStaticProps allows us to get props here
   const { image, name, details, price } = product //destructure product prop
+  const [index, setIndex] = useState(0); //set state field - at start we want to look at the image under the index of 0
 
   return (
     <div>
-      <div className="product-detail-container bg-white">
+      <div className="product-detail-container">
         <div>
           <div className="image-container">
-            <img src={urlFor(image && image[0])} />
+            <img src={urlFor(image && image[index])} className="product-detail-image" />
           </div>
-          {/* <div className="small-images-container">
+          <div className="small-images-container">
             {image?.map((item, i) => (
               <img 
                 src={urlFor(item)}
-                className=""
-                onMouseEnter=""
+                className={i === index ? 'small-image selected-image' : 'small-image'} //this is a dynamic class name. if i (current index) is equal to the index we want to see in the til? or carousel, we can provide 'small-image and selected-image' class name
+                onMouseEnter={() => setIndex(i)} //put function that equals callback function on onMouseEnter
               />
             ))}
-          </div> */}
+          </div>
         </div>
 
         <div className="product-detail-desc">
