@@ -1,5 +1,3 @@
-// export { default as logo } from './logo.svg';
-
 import airbnb from "./airbnb.png";
 import bill from "./bill.png";
 import binance from "./binance.png";

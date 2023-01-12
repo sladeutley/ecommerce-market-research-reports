@@ -9,8 +9,8 @@ import Footer from './Footer'
 const Layout = ({ children }) => {
   return (
     // below is where you can change background color of app
-    // <div className="bg-primary layout">
-    <div className="layout w-full overflow-hidden">
+    <div className="bg-primary layout w-full overflow-hidden">
+    {/* <div className="layout w-full overflow-hidden"> */}
       <Head>
         <title>U&G Market Research Store</title>
         {/* Below, is where maybe the favicon goes. Might not need it though. Might just have to create a favicon we like and name it favicon.ico and replace the one in public folder. Also, once again, don't don't if need this meta stuff - don't think i do */}
@@ -19,7 +19,10 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <header>
-        <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+        <div className={`{styles.paddingX} {styles.flexCenter}`}>
+        {/* <div className={`sm:px-16 px-6 flex justify-center items-center`}> */}
+          {/* I HAVE LEARNED THE styles.paddingX - anything imported is not working here, but now seems to be working on Navbar.jsx, so i just put it there. It works here though if you actually hard code it like it is on style.js. ALSO, maybe a double navbar wheree the top one has the shopping cart and bottom has regular stuff might be nice? */}
+          {/* <div className={`${styles.boxWidth}`}> */}
           <div className={`${styles.boxWidth}`}>
             <Navbar />
           </div>
