@@ -5,6 +5,7 @@ import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-
 //1:38:35
 import { client, urlFor } from '../../lib/client' //to get the image for the specific product of the page we're on, we have to make an API call. **THIS IS WHEN YOU USE getServerSideProps (which I copied and pasted from index.js in pages folder). BUT, this time we're gonna change it to getStaticProps, which is another special next js function (used when data required to render the page is availale at build time head of a user's request AND data comes from a headless CMS (like Sanity.io)). Bc data is already there, we get it instantly when click on page
 import { Product } from '../../components'
+import { useStateContext } from '../../contxt/StateContext'
 
 const ProductDetails = ({ product, products }) => { //just like getServerSideProps, getStaticProps allows us to get props here
   const { image, name, details, price } = product //destructure product prop
