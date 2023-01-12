@@ -12,7 +12,7 @@ const ProductDetails = ({ product, products }) => { //just like getServerSidePro
 
   return (
     <div>
-      <div className="product-detail-container">
+      <div className="product-detail-container bg-fuchsia-200">
         <div>
           <div className="image-container">
             <img src={urlFor(image && image[index])} className="product-detail-image" />
