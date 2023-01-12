@@ -7,6 +7,8 @@ import { AiOutlineShopping } from 'react-icons/ai' //this is just a shopping ico
 // import { close, logo, menu } from '../assets' //don't need bc we just need public folder for static assets in nextjs
 import { navLinks } from "../constants";
 
+import { Cart } from './'
+
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const logo = '/logo.svg'
@@ -90,6 +92,7 @@ const Navbar = () => {
             <span className="cart-item-qty">1</span>
           </button>
 
+          <Cart />
         </nav>
 
       </div>
