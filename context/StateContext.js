@@ -7,7 +7,7 @@ const Context = createContext();
 export const StateContext = ({ children }) => { //children is an important prop that means whenver we call our state context like <State> {children} </State> , whatever we pass into it is considered children, and we can render it out
   //below, there are going to be a lot of different states used in context
   const [showCart, setShowCart] = useState(false) //we are not currently showing that cart to when we are
-  const [cartItems, setCartItems] = useState() //we always need to know what items we have in our cart. Going to use local storage as well for this
+  const [cartItems, setCartItems] = useState([]) //we always need to know what items we have in our cart. Going to use local storage as well for this
   const [totalPrice, setTotalPrice] = useState()
   const [totalQuantities, setTotalQuantities] = useState()
   const [qty, setQty] = useState(1) //to change quanity for each individual item
@@ -38,7 +38,7 @@ export const StateContext = ({ children }) => { //children is an important prop 
       setCartItems([...cartItems], { ...product })
     }
 
-    toast.success(`{qty} ${product.name} added to the cart.`)
+    toast.success(`${qty} ${product.name} added to the cart.`)
   }
 
   const incQty = () => {
