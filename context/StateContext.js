@@ -12,6 +12,17 @@ export const StateContext = ({ children }) => { //children is an important prop 
   const [totalQuantities, setTotalQuantities] = useState()
   const [qty, setQty] = useState(1) //to change quanity for each individual item
 
+  const incQty = () => {
+    setQty((prevQty) => prevQty + 1)
+  }
+
+  const decQty = () => {
+    setQty((prevQty) => {
+      if(prevQty -1 < 1) return 1; //bc can't go lower than 1
+      return prevQty - 1
+    })
+  }
+
   //create our context provide. Below means we are not rendering anything, we are just wrapping everything with our context provider, and we're going to pass some values to it
   return (
     <Context.Provider
@@ -20,7 +31,9 @@ export const StateContext = ({ children }) => { //children is an important prop 
         cartItems,
         totalPrice,
         totalQuantities,
-        qty
+        qty,
+        incQty,
+        decQty
       }}
     >
       {children}
