@@ -16,11 +16,12 @@ export const StateContext = ({ children }) => { //children is an important prop 
     //check if product is already in cart
     const checkProductInCart = cartItems.find((items) => items._id === product._id)
 
+    //Below is updating our state I think. Now need it to happen both inside of below if and else
+    setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity)
+    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity)
+    //***Above, have no idea how we're getting prevTotalPrice or prevTotalQuantities - perhaps it's just a parameter and this is not calling the function, but we wiill do that later
+    
     if (checkProductInCart) {
-      //Below is updating our state I think
-      setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity)
-      setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity)
-      //***Above, have no idea how we're getting prevTotalPrice or prevTotalQuantities - perhaps it's just a parameter and this is not calling the function, but we wiill do that later
 
       //update the actual items in cart
       const updatedCartItems = cartItems.map((cartProduct) => { //udate if already exists in cart
@@ -31,8 +32,13 @@ export const StateContext = ({ children }) => { //children is an important prop 
       })
 
       setCartItems(updatedCartItems)
-      toast.success(`{qty} ${product.name} added to the cart.`)
+    } else {
+      product.quantity = quantity;
+
+      setCartItems([...cartItems], { ...product })
     }
+
+    toast.success(`{qty} ${product.name} added to the cart.`)
   }
 
   const incQty = () => {
@@ -56,7 +62,8 @@ export const StateContext = ({ children }) => { //children is an important prop 
         totalQuantities,
         qty,
         incQty,
-        decQty
+        decQty,
+        onAdd
       }}
     >
       {children}
