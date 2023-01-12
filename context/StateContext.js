@@ -8,13 +8,13 @@ export const StateContext = ({ children }) => { //children is an important prop 
   //below, there are going to be a lot of different states used in context
   const [showCart, setShowCart] = useState(false) //we are not currently showing that cart to when we are
   const [cartItems, setCartItems] = useState([]) //we always need to know what items we have in our cart. Going to use local storage as well for this
-  const [totalPrice, setTotalPrice] = useState()
+  const [totalPrice, setTotalPrice] = useState(0)
   const [totalQuantities, setTotalQuantities] = useState(0)
   const [qty, setQty] = useState(1) //to change quanity for each individual item
 
   const onAdd = (product, quantity) => {
     //check if product is already in cart
-    const checkProductInCart = cartItems.find((items) => items._id === product._id)
+    const checkProductInCart = cartItems.find((item) => item._id === product._id)
 
     //Below is updating our state I think. Now need it to happen both inside of below if and else
     setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity)
@@ -35,9 +35,9 @@ export const StateContext = ({ children }) => { //children is an important prop 
     } else {
       product.quantity = quantity;
 
-      setCartItems([...cartItems], { ...product })
+      setCartItems([...cartItems, { ...product }])
     }
-
+    console.log('cartItems',cartItems);
     toast.success(`${qty} ${product.name} added to the cart.`)
   }
 

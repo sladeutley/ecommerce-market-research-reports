@@ -57,6 +57,7 @@ const Navbar = () => {
           <button type="button" className="cart-icon sm:flex hidden justify-end mb-6" onClick={() => setShowCart(true)}>
             <AiOutlineShopping />
             <span className="cart-item-qty">{totalQuantities}</span>
+            {/* Above, **StateContext is what allows us to update quantity in cart icon, as well as in cart when add item is clicked on product detal page, bc it's universal */}
           </button>
 
           {/* mobile - note, do same thing here but with all the items if want totally different structure for mobile */}
