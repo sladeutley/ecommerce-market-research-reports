@@ -8,6 +8,7 @@ import Footer from './Footer'
 
 const Layout = ({ children }) => {
   return (
+    // <div className="bg-primary layout">
     <div className="layout">
       <Head>
         <title>U&G Market Research Store</title>

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
 
+/* below, commenting out is what fixed the cart item number from being a bit below cart */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -31,6 +32,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  /* Below, there was a problem so commented out - not sure what it does */
   text-fill-color: transparent;
 }
 
@@ -229,6 +231,7 @@ width: 100%;
 .cart-item-qty{
   position: absolute;
   right: -8px;
+  top: 0px;
   font-size: 12px;
   color: #eee;
   background-color: #f02d34;
