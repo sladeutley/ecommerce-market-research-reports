@@ -8,8 +8,9 @@ import Footer from './Footer'
 
 const Layout = ({ children }) => {
   return (
+    // below is where you can change background color of app
     // <div className="bg-primary layout">
-    <div className="layout">
+    <div className="layout w-full overflow-hidden">
       <Head>
         <title>U&G Market Research Store</title>
         {/* Below, is where maybe the favicon goes. Might not need it though. Might just have to create a favicon we like and name it favicon.ico and replace the one in public folder. Also, once again, don't don't if need this meta stuff - don't think i do */}
@@ -18,7 +19,12 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <header>
-        <Navbar />
+        <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+          <div className={`${styles.boxWidth}`}>
+            <Navbar />
+          </div>
+        </div>
+        {/* There seems to be a little bit more margin below navbar and main content in first ecommerce site - change if want in navbar with margin bottom or main content with margin top */}
       </header>
       <main className="main-container">
         {/* Below, To make Component from _app.js appear in our app, use thing in react where whatever you pass inside your component, you get access to that through prop called 'children' */}
