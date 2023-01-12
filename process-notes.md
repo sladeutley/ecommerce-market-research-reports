@@ -27,7 +27,7 @@ Incorporating Tailwind
 1) in terminal, had to type 'npm install -D tailwindcss postcss autoprefixer --legacy-peer-deps'
 2) in terminal, type 'npx tailwindcss init -p'
 3) Add the code that's in tailwind.config.cjs
-4) changed to code below in tailwind.config.js and added top: 0px; to cart-item-qty class in globals.css bc cart item number was showing below cart without it - go to commit - 'check to see if tw was connected to app' to see what I did if I need to go back and change it 
+4) changed to code below in tailwind.config.js and added top: 0px; to cart-item-qty class in globals.css bc cart item number was showing below cart without it - go to commit - 'check to see if tw was connected to app' to see what I did if I need to go back and change it. NOTE - if look under 'PROBLEMS' in terminal, it says there are some issues in globals.css (that's what those squiggly lines are), but it seems to be working 
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
