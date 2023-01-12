@@ -40,3 +40,6 @@ export const StateContext = ({ children }) => { //children is an important prop 
     </Context.Provider>
   )
 }
+
+//below, special function that allows us to more easily grab the state, essentially being like a hook
+export const useStateContext = () => useContext(Context)
