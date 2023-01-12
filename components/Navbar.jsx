@@ -4,10 +4,14 @@ import Link from 'next/link'
 import styles from '../styles/style'
 
 import { AiOutlineShopping } from 'react-icons/ai' //this is just a shopping icon
-import { close, logo, menu } from '../assets'
+// import { close, logo, menu } from '../assets' //don't need bc we just need public folder for static assets in nextjs
 import { navLinks } from "../constants";
 
 const Navbar = () => {
+  const [toggle, setToggle] = useState(false);
+  const logo = '/logo.svg'
+  const menu = '/menu.svg'
+  const close = '/close.svg'
   // NOTE, to know what these tailwind classes do, like below, go to tailwind docs and search for them - it will explain everything
   return (
     //THIS IS FROM ECOMMERCE SITE
@@ -27,9 +31,9 @@ const Navbar = () => {
       <div className={`${styles.boxWidth}`}>
 
         <nav className="w-full flex py-6 justify-between items-center navbar">
-          {console.log('logo', logo)}
+          {/* desktop */}
           {/* <img src={logo} alt="hoobank" className="w-[124px] h-[32px]" /> */}
-          <img src={`/logo.svg`} alt="hoobank" className="w-[124px] h-[32px] fill-black" />
+          <img src={logo} alt="hoobank" className="w-[124px] h-[32px] fill-black" />
           {/* Above, FOR SOME REASON DOING IT LIKE I DID IN TW BIZ SITE WHERE I'M IMPORTING IMAGE FROM ASSETS FOLDER IS NOT WORKING. IT IS WORKING IF I PUT ALL THESE IMAGES INTO PUBLIC FOLDER - BUT I DON'T KNOW IF THIS IS PROPER -> LOOK INTO THIS */}
 
           {/* This is our desktop nav bar, so that's why on small devices it will be hidden */}
@@ -45,6 +49,16 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
+          {/* mobile - note, do same thing here but with all the items if want totally different structure for mobile */}
+          <div className="sm:hidden flex flex-1 justify-end items-center">
+            <img 
+              src={toggle ? close : menu}
+              alt="menu"
+              className="w-[28px] h-[28px] object-contain"
+              // onClick={() => setToggle(!toggle)} //**in react, never want to update state using previous version of same old state. instead need to create a callback function like below. This way react knows to keep the state up to date
+              onClick={() => setToggle((prev) => !prev)} 
+            />
+          </div>
 
           <button type="button" className="cart-icon flex justify-end mb-6" onClick="">
             <AiOutlineShopping />
