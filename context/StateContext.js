@@ -12,6 +12,29 @@ export const StateContext = ({ children }) => { //children is an important prop 
   const [totalQuantities, setTotalQuantities] = useState()
   const [qty, setQty] = useState(1) //to change quanity for each individual item
 
+  const onAdd = (product, quantity) => {
+    //check if product is already in cart
+    const checkProductInCart = cartItems.find((items) => items._id === product._id)
+
+    if (checkProductInCart) {
+      //Below is updating our state I think
+      setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity)
+      setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity)
+      //***Above, have no idea how we're getting prevTotalPrice or prevTotalQuantities - perhaps it's just a parameter and this is not calling the function, but we wiill do that later
+
+      //update the actual items in cart
+      const updatedCartItems = cartItems.map((cartProduct) => { //udate if already exists in cart
+        if (cartProduct._id === product._id) return { //return new object
+          ...cartProduct, //spread cartProduct - *not sure what this is doing, is this just duplicating cartProduct? is cartProduct an array or object
+          quantity: cartProduct.quantity + quantity //update quantity
+        }
+      })
+
+      setCartItems(updatedCartItems)
+      toast.success(`{qty} ${product.name} added to the cart.`)
+    }
+  }
+
   const incQty = () => {
     setQty((prevQty) => prevQty + 1)
   }
