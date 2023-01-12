@@ -7,7 +7,7 @@ const Product = ({ product: { image, name, slug, price } }) => {
   return (
     <div>
       <Link href={`/product/${slug.current}`}>
-        <div className='prduct-card'>
+        <div className='product-card'>
           <img 
             src={urlFor(image && image[0])} 
             // alt="" // I guess we don't need an alt, but could add one to sanity data
