@@ -14,7 +14,7 @@ export const StateContext = ({ children }) => { //children is an important prop 
 
   //create our context provide. Below means we are not rendering anything, we are just wrapping everything with our context provider, and we're going to pass some values to it
   return (
-    <Context.Provider>
+    <Context.Provider
       value={{ //below pass values of all of our state fields. This makes it so we'll be able to access the values from these states in any one of our components. But to app that happen we will have to wrap entire app with state context in _app.js
         showCart,
         cartItems,
@@ -22,6 +22,7 @@ export const StateContext = ({ children }) => { //children is an important prop 
         totalQuantities,
         qty
       }}
+    >
       {children}
     </Context.Provider>
   )
