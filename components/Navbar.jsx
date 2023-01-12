@@ -64,11 +64,28 @@ const Navbar = () => {
               // onClick={() => setToggle(!toggle)} //**in react, never want to update state using previous version of same old state. instead need to create a callback function like below. This way react knows to keep the state up to date
               onClick={() => setToggle((prev) => !prev)} 
             />
+            {/* Below is the list that appears when hamburger menu is clicked on - **Needs some work stylistically, and would love it if animation came from top not bottom */}
+            <div
+              className={`${toggle ? "flex" : "hidden"} p-6 bg-black-gradient absolute top-14 left-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl sidebar`}
+            >
+              <ul className="list-none flex flex-col justify-end items-center flex-1">
+                {navLinks.map((nav, index) => (
+                  <li
+                    key={nav.id}
+                    className={`font-poppins font-normal cursor-pointer text-[16px] text-white ${index === navLinks.length - 1 ? "mr-0" : "mb-4"}`}
+                  >
+                    <a href={`#${nav.id}`}>{nav.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <img src={logo} alt="hoobank" className="w-[124px] h-[32px] fill-black sm:hidden flex justify-center items-center" />
           
-          <button type="button" className="cart-icon sm:hidden flex justify-end items-center" onClick="">
+          {/* <button type="button" className="cart-icon sm:hidden flex justify-end items-center" onClick=""> */}
+          <button type="button" className="cart-icon-mobile sm:hidden flex justify-end items-center" onClick="">
+          {/* Above, made class 'cart-icon-mobile' so it could be a bit bigger. Also, you can change it so it's not transparent looking and its color */}
             <AiOutlineShopping />
             <span className="cart-item-qty">1</span>
           </button>
