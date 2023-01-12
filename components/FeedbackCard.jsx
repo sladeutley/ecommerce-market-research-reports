@@ -4,7 +4,7 @@ const FeedbackCard = ({ content, name, title, img }) => ( //As you can see, the 
   // <div className="flex justify-between flex-col px-10 py-12 rounded-[20px] w-[100%] max-w-[370px] md:mr-10 sm:mr-5 mr-0 my-5 feedback-card">
   <div className="flex sm:flex-1 justify-between flex-col px-10 py-12 rounded-[20px] w-[100%] max-w-[370px] md:mr-10 sm:mr-5 mr-0 my-5 feedback-card">
     {/* Once again, I'm not sure how this sm:mr-5 and md:mr-10 is working? Especially since there are 2 of them now so it can't mean do this to everything except this device */}
-    <img src={'./quotes.svg'} alt="double_quotes" className="w-[42.6px] h-[27.6px] object-contain" />
+    <img src={'/quotes.svg'} alt="double_quotes" className="w-[42.6px] h-[27.6px] object-contain" />
     <p className="font-poppins font-normal text-[18px] leading-[32.4px] text-white my-10">
       {content}
     </p>

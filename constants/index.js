@@ -1,19 +1,19 @@
 //EVENTUALLY YOU COULD PUT THIS INTO SANITY.IO, BUT THAT MIGHT NOT BE NECESSARY
 
-const people01 = './people01.png'
-const people02 = './people02.png'
-const people03 = './people03.png'
-const facebook = './facebook.svg'
-const instagram = './instagram.svg'
-const linkedin = './linkedin.svg'
-const twitter = './twitter.svg'
-const airbnb = './airbnb.png'
-const binance = './binance.png'
-const coinbase = './coinbase.png'
-const dropbox = './dropbox.png'
-const send = './Send.svg'
-const star = './Star.svg'
-const shield = './Shield.svg'
+const people01 = '/people01.png'
+const people02 = '/people02.png'
+const people03 = '/people03.png'
+const facebook = '/facebook.svg'
+const instagram = '/instagram.svg'
+const linkedin = '/linkedin.svg'
+const twitter = '/twitter.svg'
+const airbnb = '/airbnb.png'
+const binance = '/binance.png'
+const coinbase = '/coinbase.png'
+const dropbox = '/dropbox.png'
+const send = '/Send.svg'
+const star = '/Star.svg'
+const shield = '/Shield.svg'
 
 export const navLinks = [
   {

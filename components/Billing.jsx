@@ -6,7 +6,7 @@ const Billing = () => (
   // Below, the sectionReverse is making it so on mobile it shows the right column first (bc it's in a row on mobile)
   <section id="product" className={layout.sectionReverse}>
     <div className={layout.sectionImgReverse}>
-      <img src={'./bill.png'} alt="billing" className="w-[100%] h-[100%] relative z-[5]" />
+      <img src={'/bill.png'} alt="billing" className="w-[100%] h-[100%] relative z-[5]" />
 
       {/* gradient start */}
       <div className="absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient" />
@@ -26,8 +26,8 @@ const Billing = () => (
       </p>
 
       <div className="flex flex-row flex-wrap sm:mt-10 mt-6">
-        <img src={'./apple.svg'} alt="google_play" className="w-[128.86px] h-[42.05px] object-contain mr-5 cursor-pointer" />
-        <img src={'./google.svg'} alt="google_play" className="w-[144.17px] h-[43.08px] object-contain cursor-pointer" />
+        <img src={'/apple.svg'} alt="google_play" className="w-[128.86px] h-[42.05px] object-contain mr-5 cursor-pointer" />
+        <img src={'/google.svg'} alt="google_play" className="w-[144.17px] h-[43.08px] object-contain cursor-pointer" />
       </div>
     </div>
   </section>
