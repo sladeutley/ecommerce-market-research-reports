@@ -33,7 +33,7 @@ const Navbar = () => {
         <nav className="w-full flex sm:py-4 py-2 justify-between items-center navbar">
           {/* desktop */}
           {/* <img src={logo} alt="hoobank" className="w-[124px] h-[32px]" /> */}
-          <img src={logo} alt="hoobank" className="w-[124px] h-[32px] fill-black sm:flex hidden" />
+          <Link href="/"><img src={logo} alt="hoobank" className="w-[124px] h-[32px] fill-black sm:flex hidden" /></Link>
           {/* Above, FOR SOME REASON DOING IT LIKE I DID IN TW BIZ SITE WHERE I'M IMPORTING IMAGE FROM ASSETS FOLDER IS NOT WORKING. IT IS WORKING IF I PUT ALL THESE IMAGES INTO PUBLIC FOLDER - BUT I DON'T KNOW IF THIS IS PROPER -> LOOK INTO THIS */}
           {/* **Also above, it looks like the logo and navbar items aren't centered (except for the cart is obviously above everything else), but I think that's just bc the way the logo image is */}
 
