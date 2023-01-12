@@ -9,7 +9,7 @@ export const StateContext = ({ children }) => { //children is an important prop 
   const [showCart, setShowCart] = useState(false) //we are not currently showing that cart to when we are
   const [cartItems, setCartItems] = useState([]) //we always need to know what items we have in our cart. Going to use local storage as well for this
   const [totalPrice, setTotalPrice] = useState()
-  const [totalQuantities, setTotalQuantities] = useState()
+  const [totalQuantities, setTotalQuantities] = useState(0)
   const [qty, setQty] = useState(1) //to change quanity for each individual item
 
   const onAdd = (product, quantity) => {
@@ -57,6 +57,7 @@ export const StateContext = ({ children }) => { //children is an important prop 
     <Context.Provider
       value={{ //below pass values of all of our state fields. This makes it so we'll be able to access the values from these states in any one of our components. But to app that happen we will have to wrap entire app with state context in _app.js
         showCart,
+        setShowCart,
         cartItems,
         totalPrice,
         totalQuantities,

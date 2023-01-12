@@ -8,8 +8,10 @@ import { AiOutlineShopping } from 'react-icons/ai' //this is just a shopping ico
 import { navLinks } from "../constants";
 
 import { Cart } from './'
+import { useStateContext } from '../context/StateContext'
 
 const Navbar = () => {
+  const { showCart, setShowCart, totalQuantities } = useStateContext()
   const [toggle, setToggle] = useState(false);
   const logo = '/logo.svg'
   const menu = '/menu.svg'
@@ -54,7 +56,7 @@ const Navbar = () => {
           </ul>
           <button type="button" className="cart-icon sm:flex hidden justify-end mb-6" onClick="">
             <AiOutlineShopping />
-            <span className="cart-item-qty">1</span>
+            <span className="cart-item-qty">{totalQuantities}</span>
           </button>
 
           {/* mobile - note, do same thing here but with all the items if want totally different structure for mobile */}
@@ -89,7 +91,7 @@ const Navbar = () => {
           <button type="button" className="cart-icon-mobile sm:hidden flex justify-end items-center" onClick="">
           {/* Above, made class 'cart-icon-mobile' so it could be a bit bigger. Also, you can change it so it's not transparent looking and its color */}
             <AiOutlineShopping />
-            <span className="cart-item-qty">1</span>
+            <span className="cart-item-qty">{totalQuantities}</span>
           </button>
 
           <Cart />
