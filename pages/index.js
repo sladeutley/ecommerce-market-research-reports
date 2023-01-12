@@ -3,7 +3,7 @@ import React from 'react';
 import styles from '../styles/style';
 
 import { client } from '../lib/client';
-import { Product, FooterBanner, HeroBanner } from '../components';
+import { Product, FooterBanner, HeroBanner, Billing, Business, CardDeal, Clients, CTA, Footer, Navbar, Stats, Testimonials, Hero } from '../components';
 
 const Home = ({ products, bannerData }) => {
   return (
