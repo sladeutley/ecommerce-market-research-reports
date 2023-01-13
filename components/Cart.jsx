@@ -6,6 +6,7 @@ import toast from 'react-hot-toast'
 
 import { useStateContext } from '../context/StateContext'
 import { urlFor } from '../lib/client'
+import getStripe from '../lib/getStripe'
 
 const Cart = () => {
   const cartRef = useRef() //not sure what this does
@@ -13,7 +14,25 @@ const Cart = () => {
   // console.log('cartItems', cartItems)
 
   const handleCheckout = () => {
-    
+    const stripe = await getStripe();
+
+    //make api request to our own next.js backend
+    const response = await fetch('/api/stripe', {
+      //this second parameter is object with options (that you definied in 'stripe.js)
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(cartItems),
+    })
+
+    if (response.statusCode === 500) return; //if something goes wrong, exit function
+
+    const data = await response.json()
+
+    toast.loading('Redirecting...')
+
+    stripe.redirectToCheckout({ sessionId: data.id }) //create specific instance of checkout, so if want to return and continue with purchase, they'll be able to do so.
   }
 
   return (

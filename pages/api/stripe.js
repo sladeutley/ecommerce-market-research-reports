@@ -23,10 +23,13 @@ import Stripe from 'stripe'
 
 // 6. Comment out all the work we've done, and just copy and paste what stripe has in documentation but adapt it for us (e.g. change secret key name in .env file to match theirs, 'i think publishable key is the same name'). Next, start following my commits
 
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
+    console.log('items in checkout', req.body.cartItems)
+
     try {
       const params = {
         submit_type: 'pay',
