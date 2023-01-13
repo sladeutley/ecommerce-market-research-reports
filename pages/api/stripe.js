@@ -37,7 +37,7 @@ export default async function handler(req, res) {
       const params = {
         submit_type: 'pay',
         mode: 'payment',
-        payment_method_types: ['card'],
+        payment_method_types: ['card'], //I THINK I CAN ADD MORE PAYMENT TYPES LIKE APPLE PAY, etc - look in documentation. Also when testing out checkout, use '4242 4242 4242 4242' as credit card number - it's a stripe card for testing. **ALSO, FOR EMAILS, although you're probably going to use send owl to deliver pdfs, stripe can send confirmation emails - go to settings icon in top right corner of site, click on 'customer emails' under business settings, turn on successful payments (might only work once live and not on testing mode). Also, looks like you can have a custom domain instead of redirecting to stripe website. but it costs $10 a month.
         billing_address_collection: 'auto',
         // shipping_options: [ //WILL NOT NEED THIS FOR DIGITAL DOWNLOADS, but if for future use, go to stripe dashboard, click on Products tab, on left sidebar click shipping rates, create shipping rate, fill out prompts, then copy id of shipping, and paste it below. *COULD PROBABLY USE THIS PROCESS FOR OTHER PROPERTIES LIKE 'Coupons', etc. 
         //   { shipping_rate: 'SAMPLE_ID' },
