@@ -41,6 +41,12 @@ export const StateContext = ({ children }) => { //children is an important prop 
     toast.success(`${qty} ${product.name} added to the cart.`)
   }
 
+  //2:17 - supposedly there's an error around 2:31 - look in youtube comments for solution. I'm also concerned about all these errors we're getting when adding multiple items to cart, or going back and adding an item to the cart that already is in the cart
+
+  const toggleCartItemQuantity = (id, value) => {
+    
+  }
+
   const incQty = () => {
     setQty((prevQty) => prevQty + 1)
   }
