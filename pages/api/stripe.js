@@ -29,6 +29,10 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       const params = {
+        submit_type: 'pay',
+        mode: 'payment',
+        payment_method_types: ['card'],
+        billing_address_collection: 'auto',
         line_items: [
           {
             // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
@@ -52,4 +56,3 @@ export default async function handler(req, res) {
     res.status(405).end('Method Not Allowed');
   }
 }
-
