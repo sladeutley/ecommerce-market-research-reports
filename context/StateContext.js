@@ -47,7 +47,17 @@ export const StateContext = ({ children }) => { //children is an important prop 
   //2:17 - supposedly there's an error around 2:31 - look in youtube comments for solution. I'm also concerned about all these errors we're getting when adding multiple items to cart, or going back and adding an item to the cart that already is in the cart
 
   const toggleCartItemQuantity = (id, value) => {
+    foundProduct = cartItems.find((item) => item._id === id)
+    index = cartItems.findIndex((product) => product._id === id) //give us the index of the item in the cart item array
 
+    //are we incrementing or decrementing quantity
+    if (value === 'inc') {
+      foundProduct.quantity += 1;
+      cartItems[index] = foundProduct;
+      //**Above, What is cartItems? It is an array and it is a state propert, and most important rule of react is to never mutate the state, which means you should never update the state with an equals sign like we did in commented out code above, but should always use the setter function like 'setCartItems();.
+    } else if (value === 'dec') {
+
+    }
   }
 
   const incQty = () => {
