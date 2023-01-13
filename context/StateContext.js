@@ -49,6 +49,7 @@ export const StateContext = ({ children }) => { //children is an important prop 
   const toggleCartItemQuantity = (id, value) => {
     foundProduct = cartItems.find((item) => item._id === id)
     index = cartItems.findIndex((product) => product._id === id) //give us the index of the item in the cart item array
+    const newCartItems = cartItems.splice(index, 1) //remove the item then spread it below to add to cartItems state
 
     //are we incrementing or decrementing quantity
     if (value === 'inc') {
@@ -59,12 +60,13 @@ export const StateContext = ({ children }) => { //children is an important prop 
       // let newCartItems = [...cartItems, { ...foundProduct, quantity: foundProduct.quanity + 1 }]
       // setCartItems(newCartItems)
       // OR, even simpler
-      setCartItems([...cartItems, { ...foundProduct, quantity: foundProduct.quanity + 1 }]) //create new array by spreading current array of cartItems and add new product inside of it by creating new object, spread all of the properties of that object, and update the quantity of that object by adding 1 bc we are incrementing it
+      // setCartItems([...cartItems, { ...foundProduct, quantity: foundProduct.quanity + 1 }]) //*****IMPORTANT explanation***create new array by spreading current array of cartItems and add new product inside of it by creating new object, spread all of the properties of that object, and update the quantity of that object by adding 1 bc we are incrementing it. Had to change it to below though to be newCartItems - explanation around 2:27:00 in vid bc i'm kinda confused
+      setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quanity + 1 }])
       setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
       setTotalQuantities(prevTotalQuantities => prevTotalQuantities + 1)
     } else if (value === 'dec') {
       if (foundProduct.quantity > 1) { //this is only time we'll decrease, bc if quantity is 1, we'll just use the 'x' button to get rid of item
-        setCartItems([...cartItems, { ...foundProduct, quantity: foundProduct.quanity - 1 }])
+        setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quanity - 1 }])
         setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
         setTotalQuantities(prevTotalQuantities => prevTotalQuantities - 1)
       }
