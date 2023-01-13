@@ -685,6 +685,7 @@ padding: 30px 65px;
 .quantity-desc{
   border: 1px solid gray;
   /* padding: 2px; */
+  display: flex;
 }
 .quantity-desc span{
   font-size: 16px;
@@ -706,6 +707,10 @@ padding: 30px 65px;
   color: rgb(49, 168, 49);
   padding-left: 14px;
   padding-right: 14px;
+  font-size: 20px;
+}
+.quantity-desc .plus-cart{
+  padding-top: 7px;
 }
 
 .maylike-products-wrapper{
