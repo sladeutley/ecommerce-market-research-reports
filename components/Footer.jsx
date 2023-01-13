@@ -21,7 +21,7 @@ const Footer = () => (
     <div className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full`}>
       <div className="flex-[1] flex flex-col justify-start mr-10">
         <img
-          src={'/logo.svg'}
+          src={'/logo-black.svg'}
           alt="hoobank"
           className="w-[266px] h-[72.14px] object-contain"
         />

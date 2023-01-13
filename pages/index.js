@@ -10,15 +10,15 @@ const Home = ({ products, bannerData }) => {
     <>
       {/* NOTE - Make sure to add background color to hero and components below hero if want it like in commented out code below */}
       {/* <div className={`bg-white ${styles.flexStart}`}> */}
-      <div className={`${styles.flexStart}`}>
-        <div className={`${styles.boxWidth}`}>
+      <div className={`flex justify-center items-start`}>
+        <div className={`xl:max-w-[1280px] w-full`}>
           <Hero />
         </div>
       </div>
 
       {/* <div className={`bg-white ${styles.paddingX} ${styles.flexStart}`}> */}
-      <div className={`${styles.paddingX} ${styles.flexStart}`}>
-        <div className={`${styles.boxWidth}`}>
+      <div className={`sm:px-16 px-6 flex justify-center items-start`}>
+        <div className={`xl:max-w-[1280px] w-full`}>
           <Stats />  
           <Business /> 
           <Billing />
@@ -29,18 +29,25 @@ const Home = ({ products, bannerData }) => {
         </div>
       </div>
 
-      <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
-      <div className="products-heading">
-        <h2>Best Selling Products</h2>
-        <p>Speakers of many variations</p>
+      <div className={`sm:px-16 px-6 flex justify-center items-start`}>
+        <div className={`xl:max-w-[1280px] w-full`}>
+          <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
+            <div className="products-heading">
+              <h2>Best Selling Products</h2>
+              <p>Speakers of many variations</p>
+            </div>
+
+            <div className="flex justify-around flex-wrap">
+            {/* <div className="products-container"> */}
+              {products?.map((product) => <Product key={product._id} product={product} />)}
+            </div>
+
+            {/* After FooterBanner done, it might be time to start incorporating 'fully responsive site' - I take that back, haven't done navbar yet or set up Layout - maybe do after 'coded Footer component' commit */}
+            <FooterBanner footerBanner={bannerData && bannerData[0]} />
+        </div>
       </div>
 
-      <div className="products-container">
-        {products?.map((product) => <Product key={product._id} product={product} />)}
-      </div>
 
-      {/* After FooterBanner done, it might be time to start incorporating 'fully responsive site' - I take that back, haven't done navbar yet or set up Layout - maybe do after 'coded Footer component' commit */}
-      <FooterBanner footerBanner={bannerData && bannerData[0]} />
     </>
   )
 }

@@ -4,8 +4,8 @@ import styles, { layout } from "../styles/style";
 
 const Billing = () => (
   // Below, the sectionReverse is making it so on mobile it shows the right column first (bc it's in a row on mobile)
-  <section id="product" className={layout.sectionReverse}>
-    <div className={layout.sectionImgReverse}>
+  <section id="product" className="flex md:flex-row flex-col-reverse sm:py-16 py-6">
+    <div className="flex-1 flex justify-center items-center md:mr-10 mr-0 md:mt-0 mt-10 relative">
       <img src={'/bill.png'} alt="billing" className="w-[100%] h-[100%] relative z-[5]" />
 
       {/* gradient start */}
@@ -14,12 +14,12 @@ const Billing = () => (
       {/* gradient end */}
     </div>
 
-    <div className={layout.sectionInfo}>
-      <h2 className={styles.heading2}>
+    <div className="flex-1 flex justify-center items-start flex-col">
+      <h2 className="font-poppins font-semibold xs:text-[48px] text-[40px] text-black xs:leading-[76.8px] leading-[66.8px] w-full">
         Easily control your <br className="sm:block hidden" /> billing &
         invoicing
       </h2>
-      <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
+      <p className={`font-poppins font-normal text-stone-500 text-[18px] leading-[30.8px] max-w-[470px] mt-5`}>
         Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio
         aenean neque. Fusce ipsum orci rhoncus aliporttitor integer platea
         placerat.

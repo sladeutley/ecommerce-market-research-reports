@@ -21,23 +21,28 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <header>
-        <div className={`{styles.paddingX} {styles.flexCenter}`}>
+        <div className={`sm:px-16 px-6 flex justify-center items-center`}>
         {/* <div className={`sm:px-16 px-6 flex justify-center items-center`}> */}
           {/* I HAVE LEARNED THE styles.paddingX - anything imported is not working here, but now seems to be working on Navbar.jsx, so i just put it there. It works here though if you actually hard code it like it is on style.js. ALSO, maybe a double navbar wheree the top one has the shopping cart and bottom has regular stuff might be nice? */}
           {/* <div className={`${styles.boxWidth}`}> */}
-          <div className={`${styles.boxWidth}`}>
+          <div className={`xl:max-w-[1280px] w-full`}>
             <Navbar />
           </div>
         </div>
         {/* There seems to be a little bit more margin below navbar and main content in first ecommerce site - change if want in navbar with margin bottom or main content with margin top */}
       </header>
-      <main className="main-container">
+      {/* <main className="main-container"> */}
+      <main>
         {/* Below, To make Component from _app.js appear in our app, use thing in react where whatever you pass inside your component, you get access to that through prop called 'children' */}
         {children}
       </main>
-      <footer>
-        <Footer />
-      </footer>
+      <div className={`sm:px-16 px-6 flex justify-center items-start`}>
+        <div className={`xl:max-w-[1280px] w-full`}>
+          <footer>
+            <Footer />
+          </footer>
+        </div>
+      </div>
     </div>
   )
 }

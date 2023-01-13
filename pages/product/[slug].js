@@ -17,67 +17,71 @@ const ProductDetails = ({ product, products }) => { //just like getServerSidePro
   }
 
   return (
-    <div>
-      <div className="product-detail-container">
-        <div>
-          <div className="image-container">
-            <img src={urlFor(image && image[index])} className="product-detail-image" />
-          </div>
-          <div className="small-images-container">
-            {image?.map((item, i) => (
-              <img
-                key={i} 
-                src={urlFor(item)}
-                className={i === index ? 'small-image selected-image' : 'small-image'} //this is a dynamic class name. if i (current index) is equal to the index we want to see in the til? or carousel, we can provide 'small-image and selected-image' class name
-                onMouseEnter={() => setIndex(i)} //put function that equals callback function on onMouseEnter
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="product-detail-desc">
-          <h1>{name}</h1>
-          <div className="reviews">
-            <div className="flex flex-row">
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiOutlineStar />
+    <div className={`sm:px-16 px-6 flex justify-center items-start`}>
+      <div className={`xl:max-w-[1280px] w-full`}>
+        {/* <div> */}
+        <div className="product-detail-container">
+          <div>
+            <div className="image-container">
+              <img src={urlFor(image && image[index])} className="product-detail-image" />
             </div>
-            <p>
-              (20)
-            </p>
-          </div>
-          <h4>Details: </h4>
-          <p>{details}</p>
-          <p className="price">${price}</p>
-          <div className="quantity">
-            <h3>Quantity:</h3>
-            <p className="quantity-desc flex flex-row items-center">
-              <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
-              <span className="num">{qty}</span>
-              <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
-            </p>
-          </div>
-          <div className="buttons">
-            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
-            <button type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-      <div className="maylike-products-wrapper">
-          <h2>You may also like</h2>
-          <div className="marquee">
-          {/* Above, marquee refers to a list of scrolling divs */}
-          {/* Below, **TO GET RID of spinning effect on suggesting products, take off 'track' class */}
-            <div className="maylike-products-container track">
-              {products.map((item) => (
-                <Product key={item._id} product={item} />
+            <div className="small-images-container">
+              {image?.map((item, i) => (
+                <img
+                  key={i} 
+                  src={urlFor(item)}
+                  className={i === index ? 'small-image selected-image' : 'small-image'} //this is a dynamic class name. if i (current index) is equal to the index we want to see in the til? or carousel, we can provide 'small-image and selected-image' class name
+                  onMouseEnter={() => setIndex(i)} //put function that equals callback function on onMouseEnter
+                />
               ))}
             </div>
           </div>
+
+          <div className="product-detail-desc">
+            <h1 className="font-poppins font-semibold text-[2em]">{name}</h1>
+            <div className="reviews">
+              <div className="flex flex-row">
+                <AiFillStar />
+                <AiFillStar />
+                <AiFillStar />
+                <AiFillStar />
+                <AiOutlineStar />
+              </div>
+              <p>
+                (20)
+              </p>
+            </div>
+            <h4 className="font-poppins font-semibold text-[1.1em]">Details: </h4>
+            <p>{details}</p>
+            <p className="price">${price}</p>
+            <div className="quantity">
+              <h3>Quantity:</h3>
+              <p className="quantity-desc flex flex-row items-center">
+                <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
+                <span className="num">{qty}</span>
+                <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
+              </p>
+            </div>
+            <div className="buttons">
+              <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
+              <button type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="maylike-products-wrapper">
+            <h2>You may also like</h2>
+            <div className="marquee">
+            {/* Above, marquee refers to a list of scrolling divs */}
+            {/* Below, **TO GET RID of spinning effect on suggesting products, take off 'track' class */}
+              <div className="maylike-products-container track">
+                {products.map((item) => (
+                  <Product key={item._id} product={item} />
+                ))}
+              </div>
+            </div>
+        </div>
+    {/* </div> */}
       </div>
     </div>
   )

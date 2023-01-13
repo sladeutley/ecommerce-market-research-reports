@@ -19,19 +19,35 @@ export const navLinks = [
   {
     id: "home",
     title: "Home",
+    link: "/",
   },
   {
-    id: "features",
-    title: "Features",
+    id: "About",
+    title: "About Us",
+    link: "about",
   },
   {
-    id: "product",
-    title: "Product",
+    id: "Products",
+    title: "Products",
+    link: "product",
   },
   {
-    id: "clients",
-    title: "Clients",
+    id: "Categories",
+    title: "Categories",
+    link: "category",
   },
+  // {
+  //   id: "features",
+  //   title: "Features",
+  // },
+  // {
+  //   id: "product",
+  //   title: "Product",
+  // },
+  // {
+  //   id: "clients",
+  //   title: "Clients",
+  // },
 ];
 
 export const features = [
