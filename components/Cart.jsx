@@ -9,7 +9,7 @@ import { urlFor } from '../lib/client'
 
 const Cart = () => {
   const cartRef = useRef() //not sure what this does
-  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity } = useStateContext()
+  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove } = useStateContext()
   // console.log('cartItems', cartItems)
 
   return (
@@ -70,7 +70,7 @@ const Cart = () => {
                   <button
                     type="button"
                     className="remove-item"
-                    onClick=""
+                    onClick={() => onRemove(item)}
                   >
                     <TiDeleteOutline />
                   </button>

@@ -44,7 +44,16 @@ export const StateContext = ({ children }) => { //children is an important prop 
     toast.success(`${qty} ${product.name} added to the cart.`)
   }
 
-  //2:17 - supposedly there's an error around 2:31 - look in youtube comments for solution. I'm also concerned about all these errors we're getting when adding multiple items to cart, or going back and adding an item to the cart that already is in the cart
+  const onRemove = (product) => {
+    foundProduct = cartItems.find((item) => item._id === product._id)
+    const newCartItems = cartItems.filter((item) => item._id !== product._id) //this is almost same as below (just product._id instead of id bc don't have access to id here) in toggleCartItemQuantity function (even though we ended up not using it there) -> essentially, we're using filter to keep all items except the one we are currently looking for
+
+    setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity);
+    setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct.quantity);
+    setCartItems(newCartItems);
+  }
+
+  //2:17 - supposedly there's an error around 2:31 - fixed error but go through vid again from 2:17 to 2:31 for better understanding
 
   const toggleCartItemQuantity = (id, value) => {
     foundProduct = cartItems.find((item) => item._id === id)
@@ -62,7 +71,7 @@ export const StateContext = ({ children }) => { //children is an important prop 
       // let newCartItems = [...cartItems, { ...foundProduct, quantity: foundProduct.quanity + 1 }]
       // setCartItems(newCartItems)
       // OR, even simpler
-      // setCartItems([...cartItems, { ...foundProduct, quantity: foundProduct.quanity + 1 }]) //*****IMPORTANT explanation***create new array by spreading current array of cartItems and add new product inside of it by creating new object, spread all of the properties of that object, and update the quantity of that object by adding 1 bc we are incrementing it. Had to change it to below though to be newCartItems - explanation around 2:27:00 in vid bc i'm kinda confused
+      // setCartItems([...cartItems, { ...foundProduct, quantity: foundProduct.quanity + 1 }]) //*****IMPORTANT explanation***create new array by spreading current array of cartItems and add new product inside of it by creating new object, spread all of the properties of that object, and update the quantity of that object by adding 1 bc we are incrementing it. Had to change it to below though to be newCartItems - explanation around 2:27:00 in vid bc i'm kinda confused - maybe listen from around 2:17 through 2:35 to refresh understanding
       // setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 }])
       // below fixes products rearranging order in cart when increase quantity
       setCartItems( prevCartItems => 
@@ -117,7 +126,8 @@ export const StateContext = ({ children }) => { //children is an important prop 
         incQty,
         decQty,
         onAdd,
-        toggleCartItemQuantity
+        toggleCartItemQuantity,
+        onRemove
       }}
     >
       {children}
