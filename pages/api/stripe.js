@@ -33,10 +33,10 @@ export default async function handler(req, res) {
         mode: 'payment',
         payment_method_types: ['card'],
         billing_address_collection: 'auto',
-        shipping_options: [ //WILL NOT NEED THIS FOR DIGITAL DOWNLOADS, but if for future use, go to stripe dashboard, click on Products tab, on left sidebar click shipping rates, create shipping rate, fill out prompts, then copy id of shipping, and paste it below. *COULD PROBABLY USE THIS PROCESS FOR OTHER PROPERTIES LIKE 'Coupons', etc. 
-          { shipping_rate: 'SAMPLE_ID' },
-          { shipping_rate: 'SAMPLE_ID_2' }
-        ],
+        // shipping_options: [ //WILL NOT NEED THIS FOR DIGITAL DOWNLOADS, but if for future use, go to stripe dashboard, click on Products tab, on left sidebar click shipping rates, create shipping rate, fill out prompts, then copy id of shipping, and paste it below. *COULD PROBABLY USE THIS PROCESS FOR OTHER PROPERTIES LIKE 'Coupons', etc. 
+        //   { shipping_rate: 'SAMPLE_ID' },
+        //   { shipping_rate: 'SAMPLE_ID_2' }
+        // ],
         line_items: [
           {
             // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
