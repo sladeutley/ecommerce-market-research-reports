@@ -28,7 +28,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    console.log('items in checkout', req.body.cartItems)
+    console.log('req.body',req.body); //this should show up in console in terminal, not browser, bc backend. **Also, below of req.body.cartItems is what he had but for some reasons I just have to put req.body
+    console.log('items in checkout', req.body.cartItems) 
 
     try {
       const params = {

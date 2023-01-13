@@ -13,7 +13,7 @@ const Cart = () => {
   const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove } = useStateContext()
   // console.log('cartItems', cartItems)
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     const stripe = await getStripe();
 
     //make api request to our own next.js backend
