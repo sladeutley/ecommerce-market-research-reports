@@ -8,7 +8,13 @@ import { useStateContext } from '../../context/StateContext'
 const ProductDetails = ({ product, products }) => { //just like getServerSideProps, getStaticProps allows us to get props here
   const { image, name, details, price } = product //destructure product prop
   const [index, setIndex] = useState(0); //set state field - at start we want to look at the image under the index of 0
-  const { decQty, incQty, qty, onAdd } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
+
+  const handleBuyNow = () => {
+    onAdd(product, qty)
+
+    setShowCart(true);
+  }
 
   return (
     <div>
@@ -19,7 +25,8 @@ const ProductDetails = ({ product, products }) => { //just like getServerSidePro
           </div>
           <div className="small-images-container">
             {image?.map((item, i) => (
-              <img 
+              <img
+                key={i} 
                 src={urlFor(item)}
                 className={i === index ? 'small-image selected-image' : 'small-image'} //this is a dynamic class name. if i (current index) is equal to the index we want to see in the til? or carousel, we can provide 'small-image and selected-image' class name
                 onMouseEnter={() => setIndex(i)} //put function that equals callback function on onMouseEnter
@@ -55,7 +62,7 @@ const ProductDetails = ({ product, products }) => { //just like getServerSidePro
           </div>
           <div className="buttons">
             <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
-            <button type="button" className="buy-now" onClick="">Buy Now</button>
+            <button type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
           </div>
         </div>
       </div>
