@@ -49,7 +49,9 @@ export const StateContext = ({ children }) => { //children is an important prop 
   const toggleCartItemQuantity = (id, value) => {
     foundProduct = cartItems.find((item) => item._id === id)
     index = cartItems.findIndex((product) => product._id === id) //give us the index of the item in the cart item array
-    const newCartItems = cartItems.splice(index, 1) //remove the item then spread it below to add to cartItems state
+    // const newCartItems = cartItems.splice(index, 1) //remove the item then spread it below to add to cartItems state
+    // Shouldn't use splice method bc it mutates state, so use filter below
+    const newCartItems = cartItems.filter((item) => item._id !== id) //use filter to keep all the items except the one we are currently looking for
 
     //are we incrementing or decrementing quantity
     if (value === 'inc') {
