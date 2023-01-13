@@ -19,7 +19,7 @@
   scroll-behavior: smooth;
 }
 
-.text-gradient {
+/* .text-gradient {
   background: radial-gradient(
     64.18% 64.18% at 71.16% 35.69%,
     #def9fa 0.89%,
@@ -28,6 +28,16 @@
     #7de7eb 55.12%,
     #5ce1e6 71.54%,
     #33bbcf 100%
+  ); */
+.text-gradient {
+  background: radial-gradient(
+    64.18% 64.18% at 71.16% 35.69%,
+    #035659 0.89%,
+    #0f6265 17.23%,
+    #1e686a 42.04%,
+    #239094 55.12%,
+    #2db8bd 71.54%,
+    #06424c 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -39,6 +49,17 @@
 .bg-blue-gradient {
   background: linear-gradient(
     157.81deg,
+    #026366 -43.27%,
+    #2d7b7d -21.24%,
+    #08acb1 12.19%,
+    #055154 29.82%,
+    #124f51 51.94%,
+    #073941 90.29%
+  );
+}
+/* .bg-blue-gradient {
+  background: linear-gradient(
+    157.81deg,
     #def9fa -43.27%,
     #bef3f5 -21.24%,
     #9dedf0 12.19%,
@@ -46,7 +67,7 @@
     #5ce1e6 51.94%,
     #33bbcf 90.29%
   );
-}
+} */
 
 .bg-black-gradient {
   background: linear-gradient(
@@ -61,10 +82,18 @@
   background: linear-gradient(
     -168.39deg,
     #ffffff -278.56%,
+    #a3a0cb -78.47%,
+    #7ec9c9 91.61%
+  );
+}
+/* .bg-black-gradient-2 {
+  background: linear-gradient(
+    -168.39deg,
+    #ffffff -278.56%,
     #6d6d6d -78.47%,
     #11101d 91.61%
   );
-}
+} */
 
 .bg-gray-gradient {
   background: linear-gradient(
@@ -75,8 +104,14 @@
 }
 
 .bg-discount-gradient {
-  background: linear-gradient(125.17deg, #272727 0%, #11101d 100%);
+  background: linear-gradient(125.17deg, #7ec9c9 0%, #a3a0cb 100%);
 }
+/* .bg-discount-gradient {
+  background: linear-gradient(125.17deg, #c7c9c9 0%, #b2b0c9 100%);
+} */
+/* .bg-discount-gradient {
+  background: linear-gradient(125.17deg, #272727 0%, #11101d 100%);
+} */
 
 .box-shadow {
   box-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
@@ -128,20 +163,33 @@
   background: var(--black-gradient);
 }
 
+/* IT'S THE BLUR THAT"S MAKING IT SHOW UP MORE OR NOT */
 .blue__gradient {
-  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+  background: linear-gradient(180deg, rgba(200, 195, 213, 0) 0%, #47837c 100%);
   filter: blur(123px);
 }
+/* .blue__gradient {
+  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #21766b 100%);
+  filter: blur(123px);
+} */
 
 .pink__gradient {
   background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
-  filter: blur(900px);
+  filter: blur(500px);
 }
+/* .pink__gradient {
+  background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
+  filter: blur(900px);
+} */
 
 .white__gradient {
-  background: rgba(255, 255, 255, 0.6);
-  filter: blur(750px);
+  background: rgba(109, 181, 165, 0.6);
+  filter: blur(150px);
 }
+/* .white__gradient {
+  background: rgba(19, 105, 85, 0.6);
+  filter: blur(750px);
+} */
 
 
 

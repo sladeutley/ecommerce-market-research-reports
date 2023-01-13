@@ -47,13 +47,13 @@ const Navbar = () => {
           {/* **Also above, it looks like the logo and navbar items aren't centered (except for the cart is obviously above everything else), but I think that's just bc the way the logo image is */}
 
           {/* This is our desktop nav bar, so that's why on small devices it will be hidden */}
-          <ul className="list-none sm:flex hidden justify-end items-center text-white flex-1">
+          <ul className="list-none sm:flex hidden justify-end items-center text-black flex-1">
             {navLinks.map((nav, index) => (
               <li
                 key={nav.id}
-                // className={`font-poppins font-normal cursor-pointer text-[16px] text-white ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
+                // className={`font-poppins font-normal cursor-pointer text-[16px] text-black ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
                 // Above, 'navLinks.length-1' just means if it's last element, like one on far right, no margin, else margin 10. Didn't need it here though bc of cart
-                className={`font-poppins font-normal cursor-pointer text-[16px] text-white mr-10`}
+                className={`font-poppins font-normal cursor-pointer text-[16px] text-black mr-10`}
               >
                 <a href={`#${nav.id}`}>{nav.title}</a>
               </li>
@@ -83,7 +83,7 @@ const Navbar = () => {
                 {navLinks.map((nav, index) => (
                   <li
                     key={nav.id}
-                    className={`font-poppins font-normal cursor-pointer text-[16px] text-white ${index === navLinks.length - 1 ? "mr-0" : "mb-4"}`}
+                    className={`font-poppins font-normal cursor-pointer text-[16px] text-black ${index === navLinks.length - 1 ? "mr-0" : "mb-4"}`}
                   >
                     <a href={`#${nav.id}`}>{nav.title}</a>
                   </li>

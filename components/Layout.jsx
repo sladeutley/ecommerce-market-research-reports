@@ -9,8 +9,10 @@ import Footer from './Footer'
 const Layout = ({ children }) => {
   return (
     // below is where you can change background color of app
-    // <div className="bg-primary layout w-full overflow-hidden">
-    <div className="layout w-full overflow-hidden">
+    // <div className="bg-from-teal-500 layout w-full overflow-hidden"> 
+    <div className="bg-white layout w-full overflow-hidden"> 
+    {/* <div className="bg-black layout w-full overflow-hidden">  */}
+    {/* <div className="layout w-full overflow-hidden"> */}
       <Head>
         <title>U&G Market Research Store</title>
         {/* Below, is where maybe the favicon goes. Might not need it though. Might just have to create a favicon we like and name it favicon.ico and replace the one in public folder. Also, once again, don't don't if need this meta stuff - don't think i do */}
