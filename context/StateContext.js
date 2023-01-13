@@ -52,9 +52,12 @@ export const StateContext = ({ children }) => { //children is an important prop 
 
     //are we incrementing or decrementing quantity
     if (value === 'inc') {
-      foundProduct.quantity += 1;
-      cartItems[index] = foundProduct;
+      // foundProduct.quantity += 1;
+      // cartItems[index] = foundProduct;
       //**Above, What is cartItems? It is an array and it is a state propert, and most important rule of react is to never mutate the state, which means you should never update the state with an equals sign like we did in commented out code above, but should always use the setter function like 'setCartItems();.
+      // below is proper way to do it
+      let newCartItems = [...cartItems, { ...product, quantity: product.quanity + 1 }] //create new array by spreading current array of cartItems and add new product inside of it by creating new object, spread all of the properties of that object, and update the quantity of that object by adding 1 bc we are incrementing it
+      setCartItems(newCartItems)
     } else if (value === 'dec') {
 
     }
