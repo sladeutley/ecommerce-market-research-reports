@@ -94,7 +94,8 @@ export const StateContext = ({ children }) => { //children is an important prop 
         qty,
         incQty,
         decQty,
-        onAdd
+        onAdd,
+        toggleCartItemQuantity
       }}
     >
       {children}
