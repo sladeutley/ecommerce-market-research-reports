@@ -684,16 +684,19 @@ padding: 30px 65px;
 }
 .quantity-desc{
   border: 1px solid gray;
-padding: 6px;
+  /* padding: 2px; */
 }
 .quantity-desc span{
   font-size: 16px;
-  padding: 6px 12px;
+  padding: 2px 12px;
   cursor: pointer;
 }
 .quantity-desc .minus{
   border-right: 1px solid gray;
   color: #f02d34;
+  font-size: 20px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 .quantity-desc .num{
   border-right: 1px solid gray;
@@ -701,7 +704,8 @@ padding: 6px;
 }
 .quantity-desc .plus{
   color: rgb(49, 168, 49);
-
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
 .maylike-products-wrapper{

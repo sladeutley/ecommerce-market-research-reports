@@ -38,7 +38,7 @@ const ProductDetails = ({ product, products }) => { //just like getServerSidePro
         <div className="product-detail-desc">
           <h1>{name}</h1>
           <div className="reviews">
-            <div>
+            <div className="flex flex-row">
               <AiFillStar />
               <AiFillStar />
               <AiFillStar />
@@ -54,7 +54,7 @@ const ProductDetails = ({ product, products }) => { //just like getServerSidePro
           <p className="price">${price}</p>
           <div className="quantity">
             <h3>Quantity:</h3>
-            <p className="quantity-desc">
+            <p className="quantity-desc flex flex-row items-center">
               <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
               <span className="num">{qty}</span>
               <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
