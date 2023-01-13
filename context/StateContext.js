@@ -63,7 +63,11 @@ export const StateContext = ({ children }) => { //children is an important prop 
       setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
       setTotalQuantities(prevTotalQuantities => prevTotalQuantities + 1)
     } else if (value === 'dec') {
-
+      if (foundProduct.quantity > 1) { //this is only time we'll decrease, bc if quantity is 1, we'll just use the 'x' button to get rid of item
+        setCartItems([...cartItems, { ...foundProduct, quantity: foundProduct.quanity - 1 }])
+        setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
+        setTotalQuantities(prevTotalQuantities => prevTotalQuantities - 1)
+      }
     }
   }
 
