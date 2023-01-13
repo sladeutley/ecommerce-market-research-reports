@@ -28,8 +28,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    console.log('req.body',req.body); //this should show up in console in terminal, not browser, bc backend. **Also, below of req.body.cartItems is what he had but for some reasons I just have to put req.body
-    console.log('items in checkout', req.body.cartItems) 
+    console.log('req.body',req.body); //this should show up in console in terminal (this is the items currently in your cart, not browser, bc backend. **Also, below of req.body.cartItems is what he had but for some reasons I just have to put req.body
+    // console.log('items in checkout', req.body.cartItems)
+    // console.log('req.body[0].image',req.body[0].image);
 
     try {
       const params = {
@@ -41,21 +42,44 @@ export default async function handler(req, res) {
         //   { shipping_rate: 'SAMPLE_ID' },
         //   { shipping_rate: 'SAMPLE_ID_2' }
         // ],
-        line_items: [
-          {
-            // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-            price: '{{PRICE_ID}}',
-            quantity: 1,
-          },
-        ],
-        mode: 'payment',
+        // line_items: [
+        //   {
+        //     // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+        //     price: '{{PRICE_ID}}',
+        //     quantity: 1,
+        //   },
+        // ],
+        line_items: req.body.map((item) => {
+          const img = item.image[0].asset._ref; //this is not actual image, just reference, so have to do newImage below, with letters after '/images' being id of project in sanity.io/manage then the project you're in
+          const newImage = img.replace('image-', 'https://cdn.sanity.io/images/ixn20rpn/production/').replace('-webp', '.webp'); //again, ixn20rpn is your sanity production id. see comment above. ALSO, might want to do this as 'jpg' to .jpg' for when you upload your images which will probably be jpg's.
+
+          console.log('newImage',newImage);
+          return { //return object that represents one of our items
+            price_data: { 
+              currency: 'usd',
+              product_data: { 
+                name: item.name,
+                images: [newImage],
+              },
+              unit_amount: item.price * 100, // '* 100' bc unit amount has to be in cents
+            },
+            adjustable_quantity: {
+              enabled:true,
+              minimum: 1,
+            },
+            quantity: item.quantity
+          }
+        }),
+        // mode: 'payment', //don't need bc already have it above (although not in this object which I don't get)
         success_url: `${req.headers.origin}/?success=true`,
         cancel_url: `${req.headers.origin}/?canceled=true`,
       }
 
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create(params);
-      res.redirect(303, session.url);
+      // res.redirect(303, session.url);
+      // don't want to redirect above, but instead do below
+      res.status(200).json(session)
     } catch (err) {
       res.status(err.statusCode || 500).json(err.message);
     }
