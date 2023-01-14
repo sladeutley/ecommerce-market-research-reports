@@ -24,17 +24,17 @@ export const navLinks = [
   {
     id: "About",
     title: "About Us",
-    link: "about",
+    link: "/about",
   },
   {
     id: "Products",
     title: "Products",
-    link: "product",
+    link: "/product",
   },
   {
     id: "Categories",
     title: "Categories",
-    link: "category",
+    link: "/category",
   },
   // {
   //   id: "features",
