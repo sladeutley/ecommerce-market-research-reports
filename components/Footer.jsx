@@ -1,4 +1,6 @@
 import React from 'react'
+import Link from 'next/link'
+
 import styles from '../styles/style'
 import { AiFillInstagram, AiOutlineTwitter } from 'react-icons/ai'
 import { footerLinks, socialMedia } from "../constants";
@@ -44,7 +46,9 @@ const Footer = () => (
                     index !== footerlink.links.length - 1 ? "mb-4" : "mb-0"
                   }`}
                 >
-                  {link.name}
+                  <Link href={`${link.link}`}>
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -162,7 +162,8 @@ export const footerLinks = [
       },
       {
         name: "Blog",
-        link: "https://www.hoobank.com/blog/",
+        // link: "https://www.hoobank.com/blog/",
+        link: "/blog",
       },
       {
         name: "Newsletters",
