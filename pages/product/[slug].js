@@ -86,7 +86,7 @@ const ProductDetails = ({ product, products }) => { //just like getServerSidePro
     </div>
   )
 }
-
+//WHEN DO WE USE BELOW - look on github commits to see what was doin
 export const getStaticPaths = async () => {
   const query = `*[_type == "product"] { 
     slug {
