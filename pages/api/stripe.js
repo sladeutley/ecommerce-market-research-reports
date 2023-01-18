@@ -52,7 +52,8 @@ export default async function handler(req, res) {
         // ],
         line_items: req.body.map((item) => {
           const img = item.image[0].asset._ref; //this is not actual image, just reference, so have to do newImage below, with letters after '/images' being id of project in sanity.io/manage then the project you're in
-          const newImage = img.replace('image-', 'https://cdn.sanity.io/images/ixn20rpn/production/').replace('-webp', '.webp'); //again, ixn20rpn is your sanity production id. see comment above. ALSO, might want to do this as 'jpg' to .jpg' for when you upload your images which will probably be jpg's.
+          console.log('img',img);
+          const newImage = img.replace('image-', 'https://cdn.sanity.io/images/jfhhb4z6/production/').replace('-webp', '.webp').replace('-jpeg', '.jpeg').replace('-jpg', '.jpg').replace('-png', '.png'); //again, jfhhb4z6 is your sanity production id. MAKE SURE TO CHANGE IT TO YOUR CURRENT PROJECT ID (in sanity folder, type sanity manage to get to page where this info is) see comment above. ALSO, might want to do this as 'jpg' to .jpg' for when you upload your images which will probably be jpg's - might wanna do all in one replace method rather than two, but don't think it really matters
 
           console.log('newImage',newImage);
           return { //return object that represents one of our items
