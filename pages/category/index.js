@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { client } from '../../lib/client'
-import { Category } from '../../components'
+import { Category, Search } from '../../components'
 
 const index = ({ categories }) => {
   return (
@@ -13,11 +13,14 @@ const index = ({ categories }) => {
               <h2>Industries Covered</h2>
               <p>List of Industries Covered</p>
             </div>
+            <Search items={categories} />
             {console.log('categories', categories)}
-            <div className="flex justify-center gap-[15px] flex-wrap">
+
+            {/* Below, if for if have no search feature */}
+            {/* <div className="flex justify-center gap-[15px] flex-wrap"> */}
             {/* <div className="products-container"> */}
-              {categories?.map((category) => <Category key={category._id} category={category} />)}
-            </div>
+              {/* {categories?.map((category) => <Category key={category._id} category={category} />)} */}
+            {/* </div> */}
         </div>
       </div>
     </>

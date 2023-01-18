@@ -17,7 +17,7 @@ const CategoryDetails = ({ category, products, categories }) => {
             <p>{category.details}</p>
           </div>
 
-          <div className="flex justify-center gap-[15px] flex-wrap">
+          <div className="flex justify-center gap-[15px] flex-wrap mt-12">
           {/* <div className="products-container"> */}
             {/* {products?.map((product) => <Product key={product._id} product={product} />)} */}
             {products?.filter(product => product.category.toUpperCase() === `${category.name}`.toUpperCase()).map((product) => <Product key={product._id} product={product} />)}

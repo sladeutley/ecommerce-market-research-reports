@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { client } from '../../lib/client'
-import { HeroBanner, Product, FooterBanner } from '../../components'
+import { HeroBanner, Product, FooterBanner, Search } from '../../components'
 
 const index = ({ products, bannerData }) => {
   return (
@@ -10,15 +10,19 @@ const index = ({ products, bannerData }) => {
       <div className={`sm:px-16 px-6 flex justify-center items-start`}>
         <div className={`xl:max-w-[1280px] w-full`}>
           <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
+          {/* <Search /> */}
             <div className="products-heading">
               <h2>Best Selling Products</h2>
               <p>All of our products</p>
             </div>
+            <Search items={products} />
+            {/* I guess <Search /> could go here */}
 
-            <div className="flex justify-center gap-[15px] flex-wrap">
+            {/* Below, if for if have no search feature */}
+            {/* <div className="flex justify-center gap-[15px] flex-wrap"> */}
             {/* <div className="products-container"> */}
-              {products?.map((product) => <Product key={product._id} product={product} />)}
-            </div>
+              {/* {products?.map((product) => <Product key={product._id} product={product} />)} */}
+            {/* </div> */}
 
             {/* After FooterBanner done, it might be time to start incorporating 'fully responsive site' - I take that back, haven't done navbar yet or set up Layout - maybe do after 'coded Footer component' commit */}
             <FooterBanner footerBanner={bannerData && bannerData[0]} />
