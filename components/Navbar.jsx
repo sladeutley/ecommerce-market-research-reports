@@ -91,8 +91,11 @@ const Navbar = () => {
                   <li
                     key={nav.id}
                     className={`font-poppins font-normal cursor-pointer text-[16px] text-black ${index === navLinks.length - 1 ? "mr-0" : "mb-4"}`}
+                    onClick={() => setToggle((prev) => !prev)} //I THINK I DID THIS RIGHT SO THAT IT TOGGLES TO CLOSED WHEN NAVBAR ITEM IS CLICKED ON. I did it on logo and shopping cart too, so if change it here, change it there as well
                   >
-                    {nav.title}
+                    <Link href={`${nav.link}`}>
+                      {nav.title}
+                    </Link>
                     {/* <a href={`#${nav.id}`}>{nav.title}</a> */}
                     {/* Above was used for when it scrolled down to that section on home page */}
                   </li>
@@ -105,9 +108,11 @@ const Navbar = () => {
             <Link href="/">U&G MR</Link>
           </p> */}
           {/* Above is using text for logo */}
-          <Link href="/"><img src={logo} alt="hoobank" className="w-[124px] h-[32px] fill-black sm:hidden flex justify-center items-center" /></Link>
+          <Link href="/"><img src={logo} alt="hoobank" className="w-[124px] h-[32px] fill-black sm:hidden flex justify-center items-center" onClick={() => setToggle((prev) => !prev)} /></Link>
           
           {/* <button type="button" className="cart-icon sm:hidden flex justify-end items-center" onClick=""> */}
+          {/* <button type="button" className="cart-icon-mobile sm:hidden flex justify-end items-center" onClick={() => {setShowCart(true); setToggle((prev) => !prev)}}></button> */}
+          {/* ***Above did not work - cannot seem to get it to toggle off when clicked on - not sure it really matters that much though  */}
           <button type="button" className="cart-icon-mobile sm:hidden flex justify-end items-center" onClick={() => setShowCart(true)}>
           {/* Above, made class 'cart-icon-mobile' so it could be a bit bigger. Also, you can change it so it's not transparent looking and its color */}
             <AiOutlineShopping />
