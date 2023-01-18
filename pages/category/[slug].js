@@ -87,7 +87,8 @@ export const getStaticProps = async ({ params: { slug }}) => { //this is where i
   const products = await client.fetch(productsQuery)
 
   return {
-    props: { categories, category, products }
+    props: { categories, category, products },
+    revalidate: 1
   }
 }
 

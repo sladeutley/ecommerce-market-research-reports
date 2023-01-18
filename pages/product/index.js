@@ -52,6 +52,7 @@ export const getServerSideProps = async () => { //getServerSideProps is like in 
 
   return {
     props: { products, bannerData }
+    //DO I NEED TO USE REVALIDATE LIKE I DO ON getStaticProps, or am i even allowed to? -> don't think you need to
   }
 }
 
