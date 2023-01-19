@@ -4,25 +4,79 @@ import { toast } from 'react-hot-toast' //this is pop up notification whenever a
 
 const Context = createContext();
 
+//NOTE - if need to know how did all this before local storage, look at the previous tutorial ecommerce project you did
+
 export const StateContext = ({ children }) => { //children is an important prop that means whenver we call our state context like <State> {children} </State> , whatever we pass into it is considered children, and we can render it out
   //below, there are going to be a lot of different states used in context
   const [showCart, setShowCart] = useState(false) //we are not currently showing that cart to when we are
   const [cartItems, setCartItems] = useState([]) //we always need to know what items we have in our cart. Going to use local storage as well for this
   const [totalPrice, setTotalPrice] = useState(0)
   const [totalQuantities, setTotalQuantities] = useState(0)
+
   const [qty, setQty] = useState(1) //to change quanity for each individual item
+  useEffect(() => {
+    // ****NOTE - Should these below be in separate useEffects or ok they're all in one? Can do savedTotalPrice and savedTotalQuantities either way below (commented out code). also, It's worth noting that localStorage only stores strings, so you need to use JSON.stringify() to store non-string values and JSON.parse() to retrieve them. Also, make sure to clear the local storage when the user logs out or when the cart is cleared -> DO I NEED TO DO THIS?. Also, is there are a way to change so when reload it doesn't go from cart showing 0 to say 4 if you have 4 items in cart, like can it show 4 right away
+    const savedCartItems = JSON.parse(localStorage.getItem("cartItems")) || []
+    if (savedCartItems) {
+      setCartItems(savedCartItems);
+    }
+    // const savedTotalPrice = JSON.parse(localStorage.getItem("totalPrice")) || 0
+    // if (savedTotalPrice) {
+    //   setTotalPrice(savedTotalPrice);
+    // }
+    const savedTotalPrice = localStorage.getItem("totalPrice");
+    if (savedTotalPrice && savedTotalPrice !== 'undefined') {
+      setTotalPrice(JSON.parse(savedTotalPrice));
+    }
+
+    // const savedTotalQuantities = JSON.parse(localStorage.getItem("totalQuantities")) || 0
+    // if (savedTotalQuantities) {
+    //   setTotalQuantities(savedTotalQuantities);
+    // }
+    const savedTotalQuantities = localStorage.getItem("totalQuantities");
+    if (savedTotalQuantities && savedTotalQuantities !== 'undefined') {
+      setTotalQuantities(JSON.parse(savedTotalQuantities));
+    }
+
+
+  }, []);
+
+  useEffect(() => {
+    if (totalQuantities === 0) {
+      localStorage.clear();
+    }
+  }, [totalQuantities])
+  
 
   let foundProduct;
   let index;
 
   const onAdd = (product, quantity) => {
+    console.log('cartItems',cartItems);
     //check if product is already in cart
     const checkProductInCart = cartItems.find((item) => item._id === product._id)
 
     //Below is updating our state I think. Now need it to happen both inside of below if and else
-    setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity)
-    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity)
+    // setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity)
+    // localStorage.setItem("totalPrice", JSON.stringify((prevTotalPrice) => prevTotalPrice + product.price * quantity))
+    // Note - I think I can do both lines above like  the one line below as well
+    // setTotalPrice((prevTotalPrice) => {
+    //   localStorage.setItem("totalPrice", prevTotalPrice + product.price * quantity);
+    //   return prevTotalPrice + product.price * quantity
+    // });
+    // setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity)
+    // localStorage.setItem("totalQuantities", JSON.stringify((prevTotalQuantities) => prevTotalQuantities + quantity))
     //***Above, have no idea how we're getting prevTotalPrice or prevTotalQuantities - perhaps it's just a parameter and this is not calling the function, but we wiill do that later
+
+    setTotalPrice((prevTotalPrice) => {
+      localStorage.setItem("totalPrice", prevTotalPrice + product.price * quantity);
+      return prevTotalPrice + product.price * quantity
+    });
+
+    setTotalQuantities((prevTotalQuantities) => {
+      localStorage.setItem("totalQuantities", prevTotalQuantities + quantity);
+      return prevTotalQuantities + quantity
+    });
     
     if (checkProductInCart) {
 
@@ -35,12 +89,14 @@ export const StateContext = ({ children }) => { //children is an important prop 
       })
 
       setCartItems(updatedCartItems)
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems))
     } else {
       product.quantity = quantity;
 
       setCartItems([...cartItems, { ...product }])
+      localStorage.setItem("cartItems", JSON.stringify([...cartItems, { ...product }]))
     }
-    console.log('cartItems',cartItems);
+    // console.log('cartItems',cartItems);
     toast.success(`${qty} ${product.name} added to the cart.`)
   }
 
@@ -48,9 +104,21 @@ export const StateContext = ({ children }) => { //children is an important prop 
     foundProduct = cartItems.find((item) => item._id === product._id)
     const newCartItems = cartItems.filter((item) => item._id !== product._id) //this is almost same as below (just product._id instead of id bc don't have access to id here) in toggleCartItemQuantity function (even though we ended up not using it there) -> essentially, we're using filter to keep all items except the one we are currently looking for
 
-    setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity);
-    setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct.quantity);
+    // setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity);
+    // setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct.quantity);
+    // setCartItems(newCartItems);
+
+    setTotalPrice((prevTotalPrice) => {
+      localStorage.setItem("totalPrice", prevTotalPrice - foundProduct.price * foundProduct.quantity);
+      return prevTotalPrice - foundProduct.price * foundProduct.quantity
+    });
+
+    setTotalQuantities((prevTotalQuantities) => {
+      localStorage.setItem("totalQuantities", prevTotalQuantities - foundProduct.quantity);
+      return prevTotalQuantities - foundProduct.quantity
+    });
     setCartItems(newCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(newCartItems));
   }
 
   //2:17 - supposedly there's an error around 2:31 - fixed error but go through vid again from 2:17 to 2:31 for better understanding
@@ -74,30 +142,71 @@ export const StateContext = ({ children }) => { //children is an important prop 
       // setCartItems([...cartItems, { ...foundProduct, quantity: foundProduct.quanity + 1 }]) //*****IMPORTANT explanation***create new array by spreading current array of cartItems and add new product inside of it by creating new object, spread all of the properties of that object, and update the quantity of that object by adding 1 bc we are incrementing it. Had to change it to below though to be newCartItems - explanation around 2:27:00 in vid bc i'm kinda confused - maybe listen from around 2:17 through 2:35 to refresh understanding
       // setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 }])
       // below fixes products rearranging order in cart when increase quantity
-      setCartItems( prevCartItems => 
-        prevCartItems.map( item => {          
+      setCartItems(prevCartItems => {
+        const updatedCartItems = prevCartItems.map( item => {          
             if (item._id === id){
                 return {...item, quantity: foundProduct.quantity + 1}
             }
             return item
-        })
-      );
-      setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
-      setTotalQuantities(prevTotalQuantities => prevTotalQuantities + 1)
+        });
+        localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+        return updatedCartItems;
+    });
+    
+
+
+      // setCartItems( prevCartItems => 
+      //   prevCartItems.map( item => {          
+      //       if (item._id === id){
+      //           return {...item, quantity: foundProduct.quantity + 1}
+      //       }
+      //       return item
+      //   })
+      // );
+      // setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
+      // setTotalQuantities(prevTotalQuantities => prevTotalQuantities + 1)
+      setTotalPrice((prevTotalPrice) => {
+        localStorage.setItem("totalPrice", prevTotalPrice + foundProduct.price);
+        return prevTotalPrice + foundProduct.price
+      });
+  
+      setTotalQuantities((prevTotalQuantities) => {
+        localStorage.setItem("totalQuantities", prevTotalQuantities + 1);
+        return prevTotalQuantities + 1
+      });
     } else if (value === 'dec') {
       if (foundProduct.quantity > 1) { //this is only time we'll decrease, bc if quantity is 1, we'll just use the 'x' button to get rid of item
         // setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 }])
         // below fixes products rearranging order in cart when decrease quantity
-        setCartItems( prevCartItems => 
-          prevCartItems.map( item => {          
+        setCartItems( prevCartItems => {
+          const updatedCartItems = prevCartItems.map( item => {          
               if (item._id === id){
                   return {...item, quantity: foundProduct.quantity - 1}
               }
               return item
           })
-        );
-        setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
-        setTotalQuantities(prevTotalQuantities => prevTotalQuantities - 1)
+          localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+          return updatedCartItems;
+        });
+        // setCartItems( prevCartItems => 
+        //   prevCartItems.map( item => {          
+        //       if (item._id === id){
+        //           return {...item, quantity: foundProduct.quantity - 1}
+        //       }
+        //       return item
+        //   })
+        // );
+        // setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
+        // setTotalQuantities(prevTotalQuantities => prevTotalQuantities - 1)
+        setTotalPrice((prevTotalPrice) => {
+          localStorage.setItem("totalPrice", prevTotalPrice - foundProduct.price);
+          return prevTotalPrice - foundProduct.price
+        });
+    
+        setTotalQuantities((prevTotalQuantities) => {
+          localStorage.setItem("totalQuantities", prevTotalQuantities - 1);
+          return prevTotalQuantities - 1
+        });
       }
     }
   }
