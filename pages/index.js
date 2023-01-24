@@ -22,9 +22,9 @@ const Home = () => {
           <Stats />  
           <Business /> 
           <Billing />
-          <CardDeal />
-          <Testimonials />
-          <Clients />
+          {/* <CardDeal /> */}
+          {/* <Testimonials /> */}
+          {/* <Clients /> */}
           <CTA />
         </div>
       </div>

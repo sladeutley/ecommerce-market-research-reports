@@ -6,18 +6,18 @@ const Hero = () => (
       
     <div className={`flex-1 flex justify-center items-start flex-col xl:px-0 sm:px-16 px-6`}>
       
-      <div className="flex flex-row items-center py-[6px] px-4 bg-discount-gradient rounded-[10px] mb-2">
+      {/* <div className="flex flex-row items-center py-[6px] px-4 bg-discount-gradient rounded-[10px] mb-2">
         <img src={'/Discount.svg'} alt="discount" className="w-[32px] h-[32px]" />
         <p className={`font-poppins font-normal text-stone-500 text-[18px] leading-[30.8px]`}>
           <span className="text-black">20%</span> Discount For{" "}
           <span className="text-black">1 Month</span> Account
         </p>
-      </div>
+      </div> */}
 
       <div className="flex flex-row justify-between items-center w-full">
         <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-black ss:leading-[100.8px] leading-[75px]">
-          The Next <br className="sm:block hidden" />{" "}
-          <span className="text-gradient">Generation</span>{" "}
+          Uncovering<br className="sm:block hidden" />{" "}
+          <span className="text-gradient">Valuable</span>{" "}
         </h1>
         <div className="ss:flex hidden md:mr-4 mr-0">
           <GetStarted />
@@ -25,12 +25,10 @@ const Hero = () => (
       </div>
 
       <h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-black ss:leading-[100.8px] leading-[75px] w-full">
-        Payment Method.
+        Insights for Growth
       </h1>
       <p className={`font-poppins font-normal text-stone-500 text-[18px] leading-[30.8px] max-w-[470px] mt-5`}>
-        Our team of experts uses a methodology to identify the credit cards
-        most likely to fit your needs. We examine annual percentage rates,
-        annual fees.
+        At Precision Market Research, we empower businesses to make data-driven decisions through our comprehensive and innovative market research solutions
       </p>
 
     </div>

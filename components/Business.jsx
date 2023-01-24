@@ -26,16 +26,13 @@ const Business = () =>  (
     {/* <div className={layout.sectionInfo}> */}
     <div className={`flex-1 flex justify-center items-start flex-col`}>
       <h2 className={"font-poppins font-semibold xs:text-[48px] text-[40px] text-black xs:leading-[76.8px] leading-[66.8px] w-full"}>
-        You do the business, <br className="sm:block hidden" /> we’ll handle
-        the money.
+        Unlock untapped opportunities with<br className="sm:block hidden" /> data-driven market research
       </h2>
       <p className={`font-poppins font-normal text-stone-500 text-[18px] leading-[30.8px] max-w-[470px] mt-5`}>
-        With the right credit card, you can improve your financial life by
-        building credit, earning rewards and saving money. But with hundreds
-        of credit cards on the market.
+        We specialize in identifying key industry trends and providing strategic recommendations to support our clients' long-term success
       </p>
 
-      <Button styles={`mt-10`}  text={`Get Started`} />
+      <Button styles={`mt-10`}  text={`View Reports`} />
       {/* Above, 'styles' is a prop that has style of margin top of 10 */}
     </div>
 

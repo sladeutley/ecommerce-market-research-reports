@@ -58,23 +58,23 @@ export const features = [
   {
     id: "feature-1",
     icon: star,
-    title: "Rewards",
+    title: "Expert Analysis",
     content:
-      "The best credit cards offer some tantalizing combinations of promotions and prizes",
+      "We develop reports that drive strategic decision making and sustainable growth",
   },
   {
     id: "feature-2",
-    icon: shield,
-    title: "100% Secured",
+    icon: send,
+    title: "Cutting Edge Techniques",
     content:
-      "We take proactive steps make sure your information and transactions are secure.",
+      "Leverage experienced researchers and analysts to uncover valuable market trends",
   },
   {
     id: "feature-3",
-    icon: send,
-    title: "Balance Transfer",
+    icon: shield,
+    title: "Trusted Partner",
     content:
-      "A balance transfer credit card can save you a lot of money in interest charges.",
+      "Accurate, unbiased, and actionable market research reports for the United States and beyond",
   },
 ];
 
@@ -108,18 +108,18 @@ export const feedback = [
 export const stats = [
   {
     id: "stats-1",
-    title: "User Active",
-    value: "3800+",
+    title: "Reports and Growing",
+    value: "10+",
   },
   {
     id: "stats-2",
-    title: "Trusted by Company",
-    value: "230+",
+    title: "Years of Experience",
+    value: "6+",
   },
   {
     id: "stats-3",
-    title: "Transaction",
-    value: "$230M+",
+    title: "Industries Covered",
+    value: "10+",
   },
 ];
 

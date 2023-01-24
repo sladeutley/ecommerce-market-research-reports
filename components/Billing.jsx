@@ -16,19 +16,16 @@ const Billing = () => (
 
     <div className="flex-1 flex justify-center items-start flex-col">
       <h2 className="font-poppins font-semibold xs:text-[48px] text-[40px] text-black xs:leading-[76.8px] leading-[66.8px] w-full">
-        Easily control your <br className="sm:block hidden" /> billing &
-        invoicing
+        Explore different <br className="sm:block hidden" /> industries
       </h2>
       <p className={`font-poppins font-normal text-stone-500 text-[18px] leading-[30.8px] max-w-[470px] mt-5`}>
-        Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio
-        aenean neque. Fusce ipsum orci rhoncus aliporttitor integer platea
-        placerat.
+        We specialize in providing comprehensive market research services across a diverse range of industries, including both mainstream and niche sectors
       </p>
 
-      <div className="flex flex-row flex-wrap sm:mt-10 mt-6">
+      {/* <div className="flex flex-row flex-wrap sm:mt-10 mt-6">
         <img src={'/apple.svg'} alt="google_play" className="w-[128.86px] h-[42.05px] object-contain mr-5 cursor-pointer" />
         <img src={'/google.svg'} alt="google_play" className="w-[144.17px] h-[43.08px] object-contain cursor-pointer" />
-      </div>
+      </div> */}
     </div>
   </section>
 );
