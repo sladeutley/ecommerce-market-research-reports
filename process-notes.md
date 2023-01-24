@@ -42,3 +42,24 @@ What Files We'll Need for Sanity
 Sanity.io Notes
 - to make changes to a schema(aka an object in sanity studio) -> it looks like all you have to do if want to make edits to sanity desk is update the schema file of the desired thing you wanna update (e.g. add discount property or whatever to product.js in schema folder). Then you just stop server when cd'd in sanity folder and run npm run dev again. Not sure if this works exactly like this when already deployed though. Might have to undeploy or just push changes to github.
 - I believe the client.js file in the lib folder is what is connecting us to 
+
+
+
+Deployment Notes
+
+NOTE - **NOt sure what to do bc these are test keys - do I need to first make these live keys or whatever??
+1. go to vercel.com
+2. click on 'start deploying'
+3. click on 'continue with github' (not sure what to do if already signed in). Follow prompts
+*note - to add more repositories later, go to github -> settings -> applications -> vercel -> then add the repo
+4. click 'import' on the repository you want to use
+5. choose project name if you want to change it, but most importantly click on 'environment variables' and add what you have in .env to them (just put the variable name in name and its value in value). do this for each one. NOTE - **NOt sure what to do bc these are test keys - do I need to first make these live keys or whatever?? ALSO, under 'Build & Development Settings' in 'install commands' will have to override by putting 'npm install --legacy-peer-deps' (EVENTUALLY NEED TO FIX THIS ISSUE THOUGH JUST HAVE NO IDEA HOW TO DO IT - maybe need to update the sanity cli and next-sanityimage dependences and maybe more?? maybe see if the whole thing works if you just update all the packages??)
+6. Once it says you're deployed to vercel, click on image of your website
+NOTE - I THINK I'M GOING TO HAVE TO CHANGE FROM 'Hobby' TO 'pro' or 'enterprise' bc 'commercial' projects aka ecommerce sites are not allowed on 'hobby' plan (i think at least). ***Also, looks like they have prebuilt templates you can just use?
+
+How to use sanity.io to add or delete items
+1. in terminal, cd into sanity folder within project
+*note - type 'sanity help' anytime you need commands for terminal
+2. in terminal, type 'sanity deploy', follow prompts to name studio, it will deploy and give you a link
+3. share link with whoever we want to be able to add/edit content
+**MAKE SURE TO DO 'EMPTY CACHE AND HARD RELOAD' after making changes
