@@ -26,12 +26,21 @@ import Stripe from 'stripe'
 // const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 // const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
+// console.log('stripe', stripe)
+
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     console.log('req.body',req.body); //this should show up in console in terminal (this is the items currently in your cart, not browser, bc backend. **Also, below of req.body.cartItems is what he had but for some reasons I just have to put req.body
     // console.log('items in checkout', req.body.cartItems)
     // console.log('req.body[0].image',req.body[0].image);
+
+
+    const products = await stripe.products.list({
+      active: true
+    });
+    console.log('products',products);
+
 
     try {
       const params = {
@@ -51,6 +60,18 @@ export default async function handler(req, res) {
         //   },
         // ],
         line_items: req.body.map((item) => {
+
+          // console.log('item.name',item.name);
+          let productId;
+          for (let i = 0; i < products.data.length; i++) {
+            if (products.data[i].name === `${item.name}`) {
+              productId = products.data[i].id;
+              break;
+            }
+          }
+          console.log('productId',productId);
+
+
           const img = item.image[0].asset._ref; //this is not actual image, just reference, so have to do newImage below, with letters after '/images' being id of project in sanity.io/manage then the project you're in
           console.log('img',img);
           const newImage = img.replace('image-', 'https://cdn.sanity.io/images/jfhhb4z6/production/').replace('-webp', '.webp').replace('-jpeg', '.jpeg').replace('-jpg', '.jpg').replace('-png', '.png'); //again, jfhhb4z6 is your sanity production id. MAKE SURE TO CHANGE IT TO YOUR CURRENT PROJECT ID (in sanity folder, type sanity manage to get to page where this info is) see comment above. ALSO, might want to do this as 'jpg' to .jpg' for when you upload your images which will probably be jpg's - might wanna do all in one replace method rather than two, but don't think it really matters
@@ -59,17 +80,20 @@ export default async function handler(req, res) {
           return { //return object that represents one of our items
             price_data: { 
               currency: 'usd',
-              product_data: { 
-                name: item.name,
-                images: [newImage],
-              },
+              product: productId,
+              // Below, can only have if don't have the product item above (which will take the info from product i have in stripe and apply it instead of created new stuff like below)
+              // product_data: {
+              //   product: productId, 
+              //   name: item.name,
+              //   images: [newImage],
+              // },
               unit_amount: item.price * 100, // '* 100' bc unit amount has to be in cents
             },
             adjustable_quantity: {
               enabled:true,
               minimum: 1,
             },
-            quantity: item.quantity
+            quantity: item.quantity,
           }
         }),
         // mode: 'payment', //don't need bc already have it above (although not in this object which I don't get)
@@ -79,6 +103,7 @@ export default async function handler(req, res) {
 
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create(params);
+      console.log('session',session);
       // res.redirect(303, session.url);
       // don't want to redirect above, but instead do below
       res.status(200).json(session)
