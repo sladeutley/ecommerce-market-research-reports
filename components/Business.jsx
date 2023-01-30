@@ -32,7 +32,7 @@ const Business = () =>  (
         We specialize in identifying key industry trends and providing strategic recommendations to support our clients' long-term success
       </p>
 
-      <Button styles={`mt-10`}  text={`View Reports`} />
+      <Button styles={`mt-10`}  text={`Search Industries`} />
       {/* Above, 'styles' is a prop that has style of margin top of 10 */}
     </div>
 
