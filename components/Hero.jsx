@@ -34,7 +34,7 @@ const Hero = () => (
     </div>
 
     <div className={`flex-1 flex justify-center items-center md:my-0 my-10 relative`}>
-      <img src={'/robot.png'} alt="billing" className="w-[100%] h-[100%] relative z-[5]" />
+      <img src={'/man_looking_at_computer.png'} alt="market research reports" className="w-[100%] h-[100%] relative z-[5]" />
       {/* <img src={'/robot.png'} alt="billing" className="w-[538px] h-[542px] relative z-[5]" /> */}
       {/* Above, the z-[5] (z index of 5) makes the image appear above our gradients */}
 

@@ -18,6 +18,7 @@ const dropbox = '/dropbox.png'
 const send = '/Send.svg'
 const star = '/Star.svg'
 const shield = '/Shield.svg'
+const check = '/check-mark.svg'
 
 export const navLinks = [
   {
@@ -57,21 +58,21 @@ export const navLinks = [
 export const features = [
   {
     id: "feature-1",
-    icon: star,
+    icon: check,
     title: "Expert Analysis",
     content:
       "We develop reports that drive strategic decision making and sustainable growth",
   },
   {
     id: "feature-2",
-    icon: send,
+    icon: check,
     title: "Cutting Edge Techniques",
     content:
       "Leverage experienced researchers and analysts to uncover valuable market trends",
   },
   {
     id: "feature-3",
-    icon: shield,
+    icon: check,
     title: "Trusted Partner",
     content:
       "Accurate, unbiased, and actionable market research reports for the United States and beyond",
