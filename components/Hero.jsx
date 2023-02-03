@@ -4,7 +4,8 @@ import GetStarted from "./GetStarted"
 const Hero = () => (
   <section id="home" className={`flex md:flex-row flex-col sm:py-16 py-6`}>
       
-    <div className={`flex-1 flex justify-center items-start flex-col xl:px-0 sm:px-16 px-6`}>
+    {/* <div className={`flex-1 flex justify-center items-start flex-col xl:px-0 sm:px-16 px-6`}> */}
+    <div className={`flex-1 flex justify-center items-start flex-col xl:px-0 sm:pl-16 px-6`}>
       
       {/* <div className="flex flex-row items-center py-[6px] px-4 bg-discount-gradient rounded-[10px] mb-2">
         <img src={'/Discount.svg'} alt="discount" className="w-[32px] h-[32px]" />
@@ -34,14 +35,14 @@ const Hero = () => (
     </div>
 
     <div className={`flex-1 flex justify-center items-center md:my-0 my-10 relative`}>
-      <img src={'/man_looking_at_computer.png'} alt="market research reports" className="w-[100%] h-[100%] relative z-[5]" />
+      <img src={'/hero_image_scifi.png'} alt="market research reports" className="w-[100%] h-[100%] relative z-[5]" />
       {/* <img src={'/robot.png'} alt="billing" className="w-[538px] h-[542px] relative z-[5]" /> */}
       {/* Above, the z-[5] (z index of 5) makes the image appear above our gradients */}
 
       {/* gradient start */}
-      <div className="absolute z-[0] w-[60%] h-[55%] top-0 pink__gradient" />
+      {/* <div className="absolute z-[0] w-[60%] h-[55%] top-0 pink__gradient" />
       <div className="absolute z-[1] w-[95%] h-[80%] rounded-full white__gradient bottom-40" />
-      <div className="absolute z-[0] w-[70%] h-[70%] right-20 bottom-20 blue__gradient" />
+      <div className="absolute z-[0] w-[70%] h-[70%] right-20 bottom-20 blue__gradient" /> */}
       {/* <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
       <div className="absolute z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />
       <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" /> */}
