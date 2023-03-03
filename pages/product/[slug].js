@@ -23,7 +23,8 @@ const ProductDetails = ({ product, products }) => { //just like getServerSidePro
         <div className="product-detail-container">
           <div>
             <div className="image-container">
-              <img src={urlFor(image && image[index])} className="product-detail-image" />
+              <img src={urlFor(image && image[index])} width={1600} height={1600} className="product-detail-image" />
+              {/* <img src={urlFor(image && image[index])} width={1600} height={2072} className="product-detail-image" /> */}
             </div>
             <div className="small-images-container">
               {image?.map((item, i) => (

@@ -63,3 +63,9 @@ How to use sanity.io to add or delete items
 2. in terminal, type 'sanity deploy', follow prompts to name studio, it will deploy and give you a link
 3. share link with whoever we want to be able to add/edit content
 **MAKE SURE TO DO 'EMPTY CACHE AND HARD RELOAD' after making changes
+
+
+Terminals that should be open to run app -
+
+in main project folder, 'npm run dev', then split the screen, cd into sanity folder, 'npm run dev'
+in another terminal tab, in entire project folder, use that to push to github

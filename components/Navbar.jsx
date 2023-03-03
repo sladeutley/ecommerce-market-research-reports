@@ -14,7 +14,8 @@ const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext()
   const [toggle, setToggle] = useState(false);
   // const logo = '/logo.svg'
-  const logo = '/logo-black.svg'
+  // const logo = '/logo-black.svg'
+  const logo = '/atlas-insights-logo.jpeg'
   // const menu = '/menu.svg'
   const menu = '/menu-black.svg'
   // const close = '/close.svg'
@@ -35,7 +36,7 @@ const Navbar = () => {
 
     //BELOW IS A COMBO OF TW BIZ AND ECOMMERCE
 
-        <nav className="w-full flex sm:py-4 py-2 justify-between items-center navbar">
+        <nav className="w-full flex sm:py-1 py-2 justify-between items-center navbar">
           {/* desktop */}
 
           {/* <p className="logo sm:flex hidden">
@@ -44,7 +45,8 @@ const Navbar = () => {
           {/* Above is just using text for logo */}
           {/* <img src={logo} alt="hoobank" className="w-[124px] h-[32px]" /> */}
           {/* Below is the good logo image */}
-          <Link href="/"><img src={logo} alt="hoobank" className="w-[124px] h-[32px] fill-black sm:flex hidden cursor-pointer" /></Link>
+          {/* <Link href="/"><img src={logo} alt="hoobank" className="w-[124px] h-[32px] fill-black sm:flex hidden cursor-pointer" /></Link> */}
+          <Link href="/"><img src={logo} alt="hoobank" className="w-[124px] h-[66px] fill-black sm:flex hidden cursor-pointer" /></Link>
           {/* Above, FOR SOME REASON DOING IT LIKE I DID IN TW BIZ SITE WHERE I'M IMPORTING IMAGE FROM ASSETS FOLDER IS NOT WORKING. IT IS WORKING IF I PUT ALL THESE IMAGES INTO PUBLIC FOLDER - BUT I DON'T KNOW IF THIS IS PROPER -> LOOK INTO THIS */}
           {/* **Also above, it looks like the logo and navbar items aren't centered (except for the cart is obviously above everything else), but I think that's just bc the way the logo image is */}
 
