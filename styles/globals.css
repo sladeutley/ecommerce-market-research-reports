@@ -172,6 +172,10 @@
   box-shadow: var(--card-shadow);
 }
 
+.feature-card:hover > :nth-child(1) {
+  background: white;
+}
+
 .feedback-container .feedback-card:last-child {
   margin-right: 0px;
 }
