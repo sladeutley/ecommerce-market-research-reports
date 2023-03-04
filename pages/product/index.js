@@ -9,7 +9,11 @@ const index = ({ products, bannerData }) => {
     {/* Above, I have no idea what wrapping everything in '<></>' does  */}
       <div className={`sm:px-16 px-6 flex justify-center items-start`}>
         <div className={`xl:max-w-[1280px] w-full`}>
-          <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
+          
+          {/* Hero Banner  */}
+          {/* <HeroBanner heroBanner={bannerData.length && bannerData[0]} /> */}
+          {/* End of Hero Banner  */}
+          
           {/* <Search /> */}
             <div className="products-heading">
               <h2>Best Selling Products</h2>
@@ -25,7 +29,10 @@ const index = ({ products, bannerData }) => {
             {/* </div> */}
 
             {/* After FooterBanner done, it might be time to start incorporating 'fully responsive site' - I take that back, haven't done navbar yet or set up Layout - maybe do after 'coded Footer component' commit */}
-            <FooterBanner footerBanner={bannerData && bannerData[0]} />
+
+            {/* Footer Banner  */}
+            {/* <FooterBanner footerBanner={bannerData && bannerData[0]} /> */}
+            {/* End of Footer Banner  */}
         </div>
       </div>
     </>

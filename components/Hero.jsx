@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../styles/style'
 import GetStarted from "./GetStarted"
+
 const Hero = () => (
   <section id="home" className={`flex md:flex-row flex-col sm:py-16 py-6`}>
       
