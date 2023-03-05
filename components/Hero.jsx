@@ -36,8 +36,8 @@ const Hero = () => (
     </div>
 
     <div className={`flex-1 lg:flex hidden justify-center items-center md:my-0 my-10 relative`}>
-      <img src={'/hero_img_550x542.png'} alt="market research reports" className="w-[538px] h-[542px] relative z-[5]" />
-      {/* <img src={'/hero_img_550x542.png'} alt="market research reports" className="w-[518px] h-[522px] relative z-[5]" /> */}
+      {/* <img src={'/hero_img_550x542.png'} alt="market research reports" className="max-w-[550px] h-[542px] relative z-[5]" /> */}
+      <img src={'/hero_img_550x542.png'} alt="market research reports" className="w-[550px] h-[542px] relative z-[5]" />
       {/* <img src={'/hero_img_355x350.png'} alt="market research reports" className="w-[100%] h-[100%] relative z-[5]" /> */}
       {/* <img src={'/robot.png'} alt="billing" className="w-[538px] h-[542px] relative z-[5]" /> */}
       {/* Above, the z-[5] (z index of 5) makes the image appear above our gradients */}
@@ -54,8 +54,8 @@ const Hero = () => (
     </div>
 
     <div className={`flex-1 lg:hidden flex justify-center items-center md:my-0 my-10 relative`}>
-      {/* <img src={'/hero_img_550x542.png'} alt="market research reports" className="w-[408px] h-[412px] relative z-[5]" /> */}
-      <img src={'/hero_img_550x542.png'} alt="market research reports" className="w-[438px] h-[442px] relative z-[5]" />
+      {/* <img src={'/hero_img_550x542.png'} alt="market research reports" className="max-w-[450px] h-[442px] relative z-[5]" /> */}
+      <img src={'/hero_img_550x542.png'} alt="market research reports" className="w-[450px] h-[442px] relative z-[5]" />
 
       {/* gradient start */}
       <div className="absolute z-[0] w-[60%] h-[55%] top-0 pink__gradient" />
