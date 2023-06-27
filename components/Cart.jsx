@@ -72,6 +72,8 @@ const Cart = () => {
           {/* could have done this above, but whenever you have lists, it's better to do custom indexes, so did it the way below */}
           {cartItems.length >= 1 && cartItems.map((item) => (
             <div className="product" key={item._id}>
+              {console.log(cartItems)}
+              {console.log('id', item._id)}
               <img src={urlFor(item?.image[0])} className="cart-product-image" />
               <div className="item-desc">
                 <div className="flex top">

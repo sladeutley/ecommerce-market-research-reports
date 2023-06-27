@@ -37,9 +37,11 @@ export default async function handler(req, res) {
 
 
     const products = await stripe.products.list({
-      active: true
+      active: true,
+      limit: 100
     });
     console.log('products',products);
+    console.log('products.data.length',products.data.length);
 
 
     try {
@@ -118,3 +120,75 @@ export default async function handler(req, res) {
 
 //to debug, in console log in browser, click on warning, and for instance if it's some sort of server error like 401 or 500, it'll take you to network page where you can click on then highlighted error, and it'll give you more details about what's wrong
 
+// ********************************
+
+// import Stripe from 'stripe'
+
+// const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
+
+// export default async function handler(req, res) {
+//   if (req.method === 'POST') {
+//     console.log('req.body',req.body); 
+
+
+//     const products = await stripe.products.list({
+//       active: true
+//     });
+//     console.log('products',products);
+//     console.log('products.data.length',products.data.length);
+
+
+//     try {
+//       const params = {
+//         submit_type: 'pay',
+//         mode: 'payment',
+//         payment_method_types: ['card'], 
+//         billing_address_collection: 'auto',
+
+//         line_items: req.body.map((item) => {
+
+//           let productId;
+//           for (let i = 0; i < products.data.length; i++) {
+//             if (products.data[i].name === `${item.name}`) {
+//               productId = products.data[i].id;
+//               break;
+//             }
+//           }
+//           console.log('productId',productId);
+
+
+//           const img = item.image[0].asset._ref; 
+//           console.log('img',img);
+//           const newImage = img.replace('image-', 'https://cdn.sanity.io/images/jfhhb4z6/production/').replace('-webp', '.webp').replace('-jpeg', '.jpeg').replace('-jpg', '.jpg').replace('-png', '.png'); 
+
+//           console.log('newImage',newImage);
+//           return { //return object that represents one of our items
+//             price_data: { 
+//               currency: 'usd',
+//               product: productId,
+//               unit_amount: item.price * 100, // '* 100' bc unit amount has to be in cents
+//             },
+//             adjustable_quantity: {
+//               enabled:true,
+//               minimum: 1,
+//             },
+//             quantity: item.quantity,
+//           }
+//         }),
+
+//         success_url: `${req.headers.origin}/success`,
+//         cancel_url: `${req.headers.origin}/?canceled=true`, //MAKE SURE THERE ARE NO ISSUES WITH THIS - it wouldn't work when just 'canceled'
+//       }
+
+//       // Create Checkout Sessions from body params.
+//       const session = await stripe.checkout.sessions.create(params);
+//       console.log('session',session);
+//       res.status(200).json(session)
+//     } catch (err) {
+//       res.status(err.statusCode || 500).json(err.message);
+//     }
+//   } else {
+//     res.setHeader('Allow', 'POST');
+//     res.status(405).end('Method Not Allowed');
+//   }
+// }
