@@ -110,6 +110,9 @@ const Cart = () => {
               <h3>Subtotal:</h3>
               <h3>${totalPrice}</h3>
             </div>
+            <div>
+              <h6 className="text-sm text-red-500">*Please Note: this site is still in test mode. To receive your order, click 'pay with stripe' below. You will then be redirected to the checkout page where you can simply input '4242424242424242' as the card number, '04/24' as the expiration date, and '424' as the security code. Next, put in your email address and any zip code, click 'pay', and you will be sent a PDF of the report(s) you 'purchased' to the email you provided. Enjoy!</h6>
+            </div>
             <div className="btn-container">
               <button type="button" className="btn" onClick={handleCheckout}>
                 Pay with Stripe

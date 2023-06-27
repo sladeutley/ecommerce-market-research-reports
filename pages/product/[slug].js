@@ -46,7 +46,8 @@ const ProductDetails = ({ product, products }) => { //just like getServerSidePro
                 <AiFillStar />
                 <AiFillStar />
                 <AiFillStar />
-                <AiOutlineStar />
+                <AiFillStar />
+                {/* <AiOutlineStar /> */}
               </div>
               <p>
                 (20)
