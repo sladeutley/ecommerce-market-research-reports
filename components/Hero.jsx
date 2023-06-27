@@ -30,7 +30,7 @@ const Hero = () => (
         Insights for<br className="md:block hidden" />{" "} Growth
       </h1>
       <p className={`font-poppins font-normal text-stone-500 text-[18px] leading-[30.8px] max-w-[470px] mt-5`}>
-        At Precision Market Research, we empower businesses to make data-driven decisions through our comprehensive and innovative market research solutions
+        At Atlas Insights, we empower businesses to make data-driven decisions through our comprehensive and innovative market research solutions
       </p>
 
     </div>
