@@ -1,6 +1,6 @@
 ## Atlas Insights
 
-Atlas Insights is an e-commerce store that sells market research reports on a variety of industries. A user can search by a category or industry to find the report they're looking for. Once purchased, a pdf of the report will be sent to that user's email. This project was built using Next.js and React on the frontend, sanity.io for its headless content management system, Tailwind CSS for styling, and is even integrated with stripe for payment processing. Go ahead, give it a try!
+Atlas Insights is an e-commerce store that sells market research reports on a variety of industries. A user can search by a category or industry to find the report they're looking for. Once purchased, a pdf of the report will be sent to that user's email. This project was built using Next.js and React on the frontend, sanity.io for its headless content management system, Tailwind CSS for styling, and is even integrated with stripe for payment processing. Go ahead, give it a try! 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
