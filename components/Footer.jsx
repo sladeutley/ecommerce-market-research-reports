@@ -34,7 +34,7 @@ const Footer = () => (
           // Above, the mx-auto class is applied to the img element for all screen sizes. However, the sm:mx-0 class is also applied to the img element, which sets the horizontal margin to 0 on small screens (i.e. screens with a width of 640px or greater). This overrides the mx-auto class and aligns the image to the left on small screens. 
         />
         <p className={`font-poppins font-normal text-stone-500 text-[18px] leading-[30.8px] mt-4 max-w-[312px] mr-10`}>
-          A new way to make the payments easy, reliable and secure.
+          Market Research solutions made easy.
         </p>
       </div>
 
